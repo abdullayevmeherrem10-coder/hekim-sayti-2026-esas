@@ -1759,6 +1759,10 @@ img {
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
+    .about {
+        padding-top: 96px;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1810,6 +1814,10 @@ img {
 }
 
 @media (max-width: 768px) {
+    .about {
+        padding-top: 96px;
+    }
+
     .navbar-menu {
         position: fixed;
         top: 76px;
