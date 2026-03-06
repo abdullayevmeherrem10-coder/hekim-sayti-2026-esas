@@ -1760,7 +1760,7 @@ img {
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
     .about {
-        padding-top: 96px;
+        padding-top: 116px;
     }
 
     .hero-content {
@@ -1815,7 +1815,7 @@ img {
 
 @media (max-width: 768px) {
     .about {
-        padding-top: 96px;
+        padding-top: 116px;
     }
 
     .navbar-menu {
