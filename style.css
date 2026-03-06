@@ -554,18 +554,20 @@ img {
 .about {
     background: var(--bg-secondary);
     padding-top: 76px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    align-items: start;
+    align-items: stretch;
 }
 
 .about-image-col {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-image-frame {
@@ -573,11 +575,12 @@ img {
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border-color);
+    flex: 1;
 }
 
 .about-image-frame img {
     width: 100%;
-    aspect-ratio: 3/4;
+    height: 100%;
     object-fit: cover;
     object-position: top center;
 }
@@ -1999,8 +2002,8 @@ img {
 
 /* === About Hero Quote === */
 .about-quote-header {
-    padding: 5px 0 10px;
-    margin-bottom: 15px;
+    padding: 5px 0 0;
+    margin-bottom: 10px;
 }
 
 .about-hero-quote {
@@ -2032,3 +2035,4 @@ img {
         padding: 14px 16px;
     }
 }
+
