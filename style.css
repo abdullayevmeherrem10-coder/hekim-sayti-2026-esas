@@ -302,6 +302,8 @@ img {
     border-radius: 20px;
     padding: 36px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-form-title {
