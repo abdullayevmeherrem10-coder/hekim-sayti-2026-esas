@@ -242,7 +242,7 @@ img {
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
     align-items: stretch;
     padding: 60px 0;
     position: relative;
