@@ -1950,7 +1950,7 @@ img {
     }
 
     .navbar-socials {
-        display: flex;
+        display: none;
     }
 
     .btn-session {
@@ -1973,6 +1973,22 @@ img {
 
     .lang-option span {
         font-size: 0.5rem;
+    }
+
+    .about-badge {
+        padding: 8px 10px;
+        border-radius: 10px;
+        top: -6px;
+        right: -6px;
+    }
+
+    .badge-number {
+        font-size: 1.2rem;
+    }
+
+    .badge-text {
+        font-size: 0.55rem;
+        letter-spacing: 0.5px;
     }
 
     .section {
