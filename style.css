@@ -1943,6 +1943,11 @@ img {
         padding: 30px 24px;
     }
 
+    .approach-title-inline {
+        flex-direction: column;
+        gap: 8px;
+    }
+
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
