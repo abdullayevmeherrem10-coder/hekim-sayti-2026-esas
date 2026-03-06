@@ -575,9 +575,13 @@ img {
 .about-image-frame {
     position: relative;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: visible;
     border: 1px solid var(--border-color);
     flex: 1;
+}
+
+.about-image-frame img {
+    border-radius: 20px;
 }
 
 .about-image-frame img {
@@ -596,14 +600,15 @@ img {
 
 .about-badge {
     position: absolute;
-    bottom: -20px;
-    right: -20px;
+    top: -10px;
+    right: -10px;
     background: var(--gradient-gold);
     color: #ffffff;
-    padding: 20px;
-    border-radius: 16px;
+    padding: 14px 16px;
+    border-radius: 14px;
     text-align: center;
     box-shadow: var(--shadow-gold);
+    z-index: 2;
 }
 
 .badge-number {
