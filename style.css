@@ -149,6 +149,57 @@ img {
     box-shadow: var(--shadow-gold);
 }
 
+/* Navbar Social Links (mobile/tablet only) */
+.navbar-socials {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transition);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar-socials a:hover {
+    transform: scale(1.15);
+}
+
+.navbar-socials a[aria-label="TikTok"] {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-socials a[aria-label="Facebook"] {
+    color: #4267B2;
+    background: rgba(66, 103, 178, 0.15);
+    border-color: rgba(66, 103, 178, 0.4);
+}
+
+.navbar-socials a[aria-label="Instagram"] {
+    color: #E1306C;
+    background: rgba(225, 48, 108, 0.15);
+    border-color: rgba(225, 48, 108, 0.4);
+}
+
+.navbar-socials a[aria-label="WhatsApp"] {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-socials a[aria-label="YouTube"] {
+    color: #FF0000;
+    background: rgba(255, 0, 0, 0.15);
+    border-color: rgba(255, 0, 0, 0.4);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1839,6 +1890,10 @@ img {
     }
 
     .hamburger {
+        display: flex;
+    }
+
+    .navbar-socials {
         display: flex;
     }
 
