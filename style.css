@@ -1759,7 +1759,7 @@ img {
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
-    .about {
+    .section.about {
         padding-top: 116px;
     }
 
@@ -1814,7 +1814,7 @@ img {
 }
 
 @media (max-width: 768px) {
-    .about {
+    .section.about {
         padding-top: 116px;
     }
 
