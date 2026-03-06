@@ -553,14 +553,14 @@ img {
 /* === ABOUT SECTION === */
 .about {
     background: var(--bg-secondary);
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 76px;
+    padding-bottom: 20px;
 }
 
 .about-content {
     display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 35px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     align-items: start;
 }
 
@@ -617,7 +617,7 @@ img {
 
 .about-text-col p {
     color: var(--text-secondary);
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     font-size: 0.95rem;
 }
 
@@ -628,17 +628,17 @@ img {
 }
 
 .about-highlights {
-    margin-top: 32px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
 }
 
 .highlight-item {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 14px 20px;
+    padding: 10px 16px;
     background: rgba(45, 129, 87, 0.05);
     border: 1px solid var(--border-color-light);
     border-radius: 12px;
@@ -672,13 +672,13 @@ img {
     background: none;
     border: none;
     border-radius: 0;
-    padding: 50px 0;
+    padding: 36px 0 50px;
     text-align: center;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
 }
 
@@ -729,11 +729,11 @@ img {
 }
 
 .approach-banner p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     max-width: 700px;
     margin: 0 auto;
-    line-height: 1.8;
+    line-height: 1.7;
     position: relative;
 }
 
@@ -1787,7 +1787,21 @@ img {
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
     .section.about {
-        padding-top: 116px;
+        padding-top: 90px;
+        padding-bottom: 30px;
+    }
+
+    .about-content {
+        gap: 30px;
+    }
+
+    .about-text-col {
+        max-width: 500px;
+    }
+
+    .about-quote-header {
+        padding: 5px 0 10px;
+        margin-bottom: 20px;
     }
 
     .hero-content {
@@ -1842,7 +1856,17 @@ img {
 
 @media (max-width: 768px) {
     .section.about {
-        padding-top: 116px;
+        padding-top: 80px;
+        padding-bottom: 25px;
+    }
+
+    .about-content {
+        gap: 25px;
+    }
+
+    .about-quote-header {
+        padding: 5px 0 8px;
+        margin-bottom: 15px;
     }
 
     .navbar-menu {
@@ -1975,8 +1999,8 @@ img {
 
 /* === About Hero Quote === */
 .about-quote-header {
-    padding: 10px 0 15px;
-    margin-bottom: 25px;
+    padding: 5px 0 10px;
+    margin-bottom: 15px;
 }
 
 .about-hero-quote {
@@ -1985,11 +2009,11 @@ img {
     font-style: italic;
     font-weight: 500;
     color: var(--gold-dark);
-    line-height: 1.7;
+    line-height: 1.5;
     text-align: left;
     max-width: 100%;
     margin: 0;
-    padding: 15px 25px;
+    padding: 12px 25px;
     border-left: 4px solid var(--gold);
     background: var(--bg-secondary);
     border-radius: 6px;
