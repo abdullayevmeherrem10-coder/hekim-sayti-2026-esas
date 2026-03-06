@@ -19,12 +19,12 @@
         <div class="container navbar-content">
             <a href="#hero" class="navbar-logo"></a>
             <ul class="navbar-menu" id="navMenu">
-                <li><a href="#hero" class="nav-link active">Ana Səhifə</a></li>
-                <li><a href="#about" class="nav-link">Haqqında</a></li>
-                <li><a href="#services" class="nav-link">Xidmətlər</a></li>
-                <li><a href="#problems" class="nav-link">Problemlər</a></li>
-                <li><a href="#faq" class="nav-link">Sual-Cavab</a></li>
-                <li><a href="#contact" class="nav-link">Əlaqə</a></li>
+                <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Ana Səhifə</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">Haqqında</a></li>
+                <li><a href="#services" class="nav-link" data-i18n="nav_services">Xidmətlər</a></li>
+                <li><a href="#problems" class="nav-link" data-i18n="nav_problems">Problemlər</a></li>
+                <li><a href="#faq" class="nav-link" data-i18n="nav_faq">Sual-Cavab</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Əlaqə</a></li>
             </ul>
             <div class="navbar-socials">
                 <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -33,7 +33,26 @@
                 <a href="https://wa.link/wcams9" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
-            <a href="https://wa.link/wcams9" target="_blank" class="btn-session">Seansa Yazıl</a>
+            <!-- Language Switcher -->
+            <div class="lang-switcher" id="langSwitcher">
+                <div class="lang-option active" data-lang="az">
+                    <img src="https://flagcdn.com/w40/az.png" alt="AZ">
+                    <span>AZ</span>
+                </div>
+                <div class="lang-option" data-lang="ru">
+                    <img src="https://flagcdn.com/w40/ru.png" alt="RU">
+                    <span>RUS</span>
+                </div>
+                <div class="lang-option" data-lang="en">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+                    <span>ENG</span>
+                </div>
+                <div class="lang-option" data-lang="tr">
+                    <img src="https://flagcdn.com/w40/tr.png" alt="TR">
+                    <span>TR</span>
+                </div>
+            </div>
+            <a href="https://wa.link/wcams9" target="_blank" class="btn-session" data-i18n="btn_session">Seansa Yazıl</a>
             <button class="hamburger" id="hamburger" aria-label="Menyu">
                 <span></span>
                 <span></span>
@@ -46,7 +65,7 @@
     <section class="section about" id="about">
         <div class="container">
             <div class="section-header about-quote-header">
-                <p class="about-hero-quote">"İnsanın ruhunu müalicə etmədən cismini müalicə etmək olmaz"</p>
+                <p class="about-hero-quote" data-i18n-html="about_quote">"İnsanın ruhunu müalicə etmədən cismini müalicə etmək olmaz"</p>
             </div>
             <div class="about-content">
                 <div class="about-image-col">
@@ -55,28 +74,28 @@
                         <div class="about-image-decoration"></div>
                         <div class="about-badge">
                             <span class="badge-number">35+</span>
-                            <span class="badge-text">İllik Təcrübə</span>
+                            <span class="badge-text" data-i18n="badge_years">İllik Təcrübə</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-text-col">
-                    <p class="about-lead">İmanov Şahsəddin Abbas oğlu 1966-cı ildə Naxçıvan Muxtar Respublikasının Şərur rayonunun Zeyvə-Düdəngə kəndində anadan olmuşdur.</p>
-                    <p>Hələ 6-7 yaşlarından etibarən insanın əbədi həyatı kimi dərin fəlsəfi sualların axtarışında olmuşdur. Məktəb illərində müəllimlərinin fikirlərini oxumaq bacarığına malik olsa da, bunu gizlətmişdir. 14-15 yaşlarında Himalay və Tibet yoqlarının uzunömürlülüyü haqqında oxuduqları onu bu sahəyə daha da bağlamışdır.</p>
-                    <p>Əvvəlcə Rusiyanın Sverdlovsk (indiki Yekaterinburq) şəhərində Dağ-mədən institutunda təhsil almış, qısa müddət mühəndis kimi çalışmışdır.</p>
-                    <p>Daha sonra mənəvi elmləri dərindən öyrənmək üçün <strong>Moskvada reiki, kosmoenergetika, aydıngörmə və aydıneşitmə</strong> sahələri üzrə təhsil almışdır.</p>
-                    <p>Nəhayət, <strong>Bakıda Psixologiya və Parapsixologiya İnstitutunu</strong> bitirərək bu sahədə universal mütəxəssisə çevrilmişdir.</p>
+                    <p class="about-lead" data-i18n="about_lead">İmanov Şahsəddin Abbas oğlu 1966-cı ildə Naxçıvan Muxtar Respublikasının Şərur rayonunun Zeyvə-Düdəngə kəndində anadan olmuşdur.</p>
+                    <p data-i18n="about_p1">Hələ 6-7 yaşlarından etibarən insanın əbədi həyatı kimi dərin fəlsəfi sualların axtarışında olmuşdur. Məktəb illərində müəllimlərinin fikirlərini oxumaq bacarığına malik olsa da, bunu gizlətmişdir. 14-15 yaşlarında Himalay və Tibet yoqlarının uzunömürlülüyü haqqında oxuduqları onu bu sahəyə daha da bağlamışdır.</p>
+                    <p data-i18n="about_p2">Əvvəlcə Rusiyanın Sverdlovsk (indiki Yekaterinburq) şəhərində Dağ-mədən institutunda təhsil almış, qısa müddət mühəndis kimi çalışmışdır.</p>
+                    <p data-i18n-html="about_p3">Daha sonra mənəvi elmləri dərindən öyrənmək üçün <strong>Moskvada reiki, kosmoenergetika, aydıngörmə və aydıneşitmə</strong> sahələri üzrə təhsil almışdır.</p>
+                    <p data-i18n-html="about_p4">Nəhayət, <strong>Bakıda Psixologiya və Parapsixologiya İnstitutunu</strong> bitirərək bu sahədə universal mütəxəssisə çevrilmişdir.</p>
                     <div class="about-highlights">
                         <div class="highlight-item">
                             <i class="fas fa-graduation-cap"></i>
-                            <span>Psixologiya & Parapsixologiya İnstitutu</span>
+                            <span data-i18n="highlight_1">Psixologiya & Parapsixologiya İnstitutu</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-om"></i>
-                            <span>Reiki, Kosmoenergetika, Aydıngörmə</span>
+                            <span data-i18n="highlight_2">Reiki, Kosmoenergetika, Aydıngörmə</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-heart"></i>
-                            <span>Qeyri-Ənənəvi Tibb Metodologiyası</span>
+                            <span data-i18n="highlight_3">Qeyri-Ənənəvi Tibb Metodologiyası</span>
                         </div>
                     </div>
                 </div>
@@ -90,40 +109,40 @@
         <div class="container hero-content">
             <div class="hero-text">
                 <div class="approach-banner animate-fade-up">
-                    <h3 class="approach-title-inline"><i class="fas fa-exclamation-triangle"></i> Diqqət !</h3>
-                    <p>Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Şəfalanma yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.</p>
+                    <h3 class="approach-title-inline"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="hero_attention">Diqqət !</span></h3>
+                    <p data-i18n-html="hero_text">Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Şəfalanma yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.</p>
                     <div class="hero-buttons">
                         <a href="https://wa.link/wcams9" target="_blank" class="btn btn-primary btn-hero-cta">
-                            <i class="fab fa-whatsapp"></i> Seansa Yazıl
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="hero_btn">Seansa Yazıl</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="hero-form animate-fade-up">
-                <h3 class="hero-form-title">Zəng Sifarişi</h3>
-                <p class="hero-form-desc">Qısa zamanda əlaqə saxlamaq üçün nömrənizi yazın.</p>
+                <h3 class="hero-form-title" data-i18n="hero_form_title">Zəng Sifarişi</h3>
+                <p class="hero-form-desc" data-i18n="hero_form_desc">Qısa zamanda əlaqə saxlamaq üçün nömrənizi yazın.</p>
                 <form class="hero-call-form" id="heroCallForm">
                     <div class="form-group">
                         <div class="input-icon"><i class="fas fa-user"></i></div>
-                        <input type="text" name="ad" placeholder="AD" required>
+                        <input type="text" name="ad" data-i18n-placeholder="placeholder_name" placeholder="AD" required>
                     </div>
                     <div class="form-group">
                         <div class="input-icon"><i class="fas fa-user"></i></div>
-                        <input type="text" name="soyad" placeholder="SOYAD" required>
+                        <input type="text" name="soyad" data-i18n-placeholder="placeholder_surname" placeholder="SOYAD" required>
                     </div>
                     <div class="form-group">
                         <div class="input-icon"><i class="fas fa-phone"></i></div>
                         <div class="phone-input">
                             <span class="phone-prefix">+994</span>
-                            <input type="tel" name="telefon" placeholder="TELEFON NÖMRƏSİ" required>
+                            <input type="tel" name="telefon" data-i18n-placeholder="placeholder_phone" placeholder="TELEFON NÖMRƏSİ" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-gold btn-full">Müraciət Göndər</button>
+                    <button type="submit" class="btn btn-gold btn-full" data-i18n="btn_submit">Müraciət Göndər</button>
                 </form>
                 <div class="hero-form-features">
-                    <span><i class="fas fa-check-circle"></i> Ödənişli müayinə/şəfalanma</span>
-                    <span><i class="fas fa-check-circle"></i> 24 saat ərzində geri zəng</span>
-                    <span><i class="fas fa-check-circle"></i> Tam məxfilik</span>
+                    <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_1">Ödənişli müayinə/şəfalanma</span></span>
+                    <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_2">24 saat ərzində geri zəng</span></span>
+                    <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_3">Tam məxfilik</span></span>
                 </div>
             </div>
         </div>
@@ -134,21 +153,21 @@
                     <div class="stat-icon"><i class="fab fa-tiktok"></i></div>
                     <div class="stat-info">
                         <div class="stat-number-row"><span class="stat-number" data-target="100000">0</span><span class="stat-suffix">+</span></div>
-                        <span class="stat-label">Tiktok İzləyicisi</span>
+                        <span class="stat-label" data-i18n="stat_tiktok">Tiktok İzləyicisi</span>
                     </div>
                 </div>
                 <div class="stat-item animate-fade-up delay-1">
                     <div class="stat-icon"><i class="fas fa-star"></i></div>
                     <div class="stat-info">
                         <div class="stat-number-row"><span class="stat-number" data-target="15000">0</span><span class="stat-suffix">+</span></div>
-                        <span class="stat-label">Uğurlu Seans</span>
+                        <span class="stat-label" data-i18n="stat_sessions">Uğurlu Seans</span>
                     </div>
                 </div>
                 <div class="stat-item animate-fade-up delay-2">
                     <div class="stat-icon"><i class="fas fa-clock"></i></div>
                     <div class="stat-info">
                         <div class="stat-number-row"><span class="stat-number" data-target="35">0</span><span class="stat-suffix">+</span></div>
-                        <span class="stat-label">İllik Təcrübə</span>
+                        <span class="stat-label" data-i18n="stat_experience">İllik Təcrübə</span>
                     </div>
                 </div>
             </div>
@@ -160,35 +179,35 @@
     <section class="section services" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Xidmətlər</span>
-                <h2 class="section-title">Müayinə və Müalicə</h2>
+                <span class="section-tag" data-i18n="services_tag">Xidmətlər</span>
+                <h2 class="section-title" data-i18n="services_title">Müayinə və Müalicə</h2>
                 <div class="section-line"></div>
-                <p class="section-desc">Şahsəddin İmanlı insan orqanizminə üç hissədən ibarət sistem kimi yanaşır:</p>
-                <p class="section-desc"><strong>Ruh</strong>, <strong>Can</strong> və <strong>Bədən</strong>. Əvvəlcə bəsirət gözü ilə müayinə/diaqnostika aparılır. Ruhun, canın və bədənin problemləri araşdırılır. Daha sonra isə problemləri aradan qaldırmaq üçün şəfa-müalicə seansları təklif olunur. Müalicələr bəsirət gözü ilə aparılır. Ona qəlb gözü də deyirlər.</p>
+                <p class="section-desc" data-i18n="services_desc">Şahsəddin İmanlı insan orqanizminə üç hissədən ibarət sistem kimi yanaşır:</p>
+                <p class="section-desc" data-i18n-html="services_desc2"><strong>Ruh</strong>, <strong>Can</strong> və <strong>Bədən</strong>. Əvvəlcə bəsirət gözü ilə müayinə/diaqnostika aparılır. Ruhun, canın və bədənin problemləri araşdırılır. Daha sonra isə problemləri aradan qaldırmaq üçün şəfa-müalicə seansları təklif olunur. Müalicələr bəsirət gözü ilə aparılır. Ona qəlb gözü də deyirlər.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-wind"></i>
                     </div>
-                    <h3>Tantra Yoqa & Nəfəs Terapiyası</h3>
-                    <p>Ruhu və canı bədənə bağlayan əsas vasitə nəfəsdir. Nəfəsi idarə etməklə insan bütün bədəninə nəzarət edə, qorxu və blokları aça bilər.</p>
+                    <h3 data-i18n="service_1_title">Tantra Yoqa & Nəfəs Terapiyası</h3>
+                    <p data-i18n="service_1_desc">Ruhu və canı bədənə bağlayan əsas vasitə nəfəsdir. Nəfəsi idarə etməklə insan bütün bədəninə nəzarət edə, qorxu və blokları aça bilər.</p>
                     <div class="service-glow"></div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-circle-notch"></i>
                     </div>
-                    <h3>Çakraların Açılması</h3>
-                    <p>Bədəndəki enerji mərkəzləri (çakralar) üzərində işləyirik. Xüsusilə 6-cı çakra — "Bəsirət gözü" və 7-ci çakra — "Tac çakra" (Allahla rabitə) üzərində mənəvi təmizlənmə aparılır.</p>
+                    <h3 data-i18n="service_2_title">Çakraların Açılması</h3>
+                    <p data-i18n="service_2_desc">Bədəndəki enerji mərkəzləri (çakralar) üzərində işləyirik. Xüsusilə 6-cı çakra — "Bəsirət gözü" və 7-ci çakra — "Tac çakra" (Allahla rabitə) üzərində mənəvi təmizlənmə aparılır.</p>
                     <div class="service-glow"></div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-balance-scale"></i>
                     </div>
-                    <h3>Səbəb-Nəticə Qanunu</h3>
-                    <p>Həyatda təsadüf yoxdur. Bütün xəstəliklərin və uğursuzluqların əsasında Allahla rabitənin qırılması, ailədaxili münaqişələr və genetik problemlər dayanır.</p>
+                    <h3 data-i18n="service_3_title">Səbəb-Nəticə Qanunu</h3>
+                    <p data-i18n="service_3_desc">Həyatda təsadüf yoxdur. Bütün xəstəliklərin və uğursuzluqların əsasında Allahla rabitənin qırılması, ailədaxili münaqişələr və genetik problemlər dayanır.</p>
                     <div class="service-glow"></div>
                 </div>
             </div>
@@ -199,29 +218,29 @@
     <section class="section problems" id="problems">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Problemlər</span>
-                <h2 class="section-title">Hansı Problemlər Həll Edilir ?</h2>
+                <span class="section-tag" data-i18n="problems_tag">Problemlər</span>
+                <h2 class="section-title" data-i18n="problems_title">Hansı Problemlər Həll Edilir ?</h2>
                 <div class="section-line"></div>
-                <p class="section-desc">Xəstəliyin və problemin özü deyil, onları yaradan kök səbəblər müalicə edilir. Beləliklə problem və xəstəlik aradan qalxır.</p>
+                <p class="section-desc" data-i18n="problems_desc">Xəstəliyin və problemin özü deyil, onları yaradan kök səbəblər müalicə edilir. Beləliklə problem və xəstəlik aradan qalxır.</p>
             </div>
 
             <!-- Problem Category Tabs -->
             <div class="problem-tabs">
                 <button class="problem-tab active" data-tab="psixoloji">
                     <i class="fas fa-brain"></i>
-                    <span>Psixoloji Böhranlar</span>
+                    <span data-i18n="tab_psixoloji">Psixoloji Böhranlar</span>
                 </button>
                 <button class="problem-tab" data-tab="aile">
                     <i class="fas fa-heart"></i>
-                    <span>Ailə Problemləri</span>
+                    <span data-i18n="tab_aile">Ailə Problemləri</span>
                 </button>
                 <button class="problem-tab" data-tab="xestelik">
                     <i class="fas fa-hand-holding-medical"></i>
-                    <span>Ruhdan Bədənə Keçən Xəstəliklər</span>
+                    <span data-i18n="tab_xestelik">Ruhdan Bədənə Keçən Xəstəliklər</span>
                 </button>
                 <button class="problem-tab" data-tab="asililiq">
                     <i class="fas fa-shield-alt"></i>
-                    <span>Asılılıqlar</span>
+                    <span data-i18n="tab_asililiq">Asılılıqlar</span>
                 </button>
             </div>
 
@@ -230,18 +249,18 @@
                 <div class="problem-cards">
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-bolt"></i></div>
-                        <h4>Panik Atak</h4>
-                        <p>Cəmiyyət arasına çıxmaqdan qorxma, yemək yeyərkən boğulma hissi və daimi ölüm qorxusu. Panik atak əslində ruhla canın bədən vəhdətinin pozulması nəticəsində yaranır. Nəfəs terapiyası və psixoloji dəstəklə tamamilə aradan qaldırılır.</p>
+                        <h4 data-i18n="problem_panik_title">Panik Atak</h4>
+                        <p data-i18n="problem_panik_desc">Cəmiyyət arasına çıxmaqdan qorxma, yemək yeyərkən boğulma hissi və daimi ölüm qorxusu. Panik atak əslində ruhla canın bədən vəhdətinin pozulması nəticəsində yaranır. Nəfəs terapiyası və psixoloji dəstəklə tamamilə aradan qaldırılır.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-cloud-rain"></i></div>
-                        <h4>Nevroz və Stress</h4>
-                        <p>21-ci əsrin ən böyük bəlası — daxili gərginlik və informasiya bolluğunun nəticəsi. Əsas mənəvi səbəbi insanın "bəsirət (qəlb) gözünün" bağlanması və daxili qaranlığa düşməsidir.</p>
+                        <h4 data-i18n="problem_nevroz_title">Nevroz və Stress</h4>
+                        <p data-i18n="problem_nevroz_desc">21-ci əsrin ən böyük bəlası — daxili gərginlik və informasiya bolluğunun nəticəsi. Əsas mənəvi səbəbi insanın "bəsirət (qəlb) gözünün" bağlanması və daxili qaranlığa düşməsidir.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-child"></i></div>
-                        <h4>Keçmiş Travmalar və Qorxular</h4>
-                        <p>Uşaqlıq dövründə yaşanmış travmalar, məktəb illərindəki psixoloji zədələr, ana bətnində və ya doğuş vaxtı alınmış qorxular gələcəkdə insanın həyat enerjisini bloklayır.</p>
+                        <h4 data-i18n="problem_travma_title">Keçmiş Travmalar və Qorxular</h4>
+                        <p data-i18n="problem_travma_desc">Uşaqlıq dövründə yaşanmış travmalar, məktəb illərindəki psixoloji zədələr, ana bətnində və ya doğuş vaxtı alınmış qorxular gələcəkdə insanın həyat enerjisini bloklayır.</p>
                     </div>
                 </div>
             </div>
@@ -250,23 +269,23 @@
                 <div class="problem-cards">
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-heart-broken"></i></div>
-                        <h4>Xəyanət və Evdən Uzaqlaşma</h4>
-                        <p>Kişilərin xəyanətinin arxasında evdəki psixoloji təzyiq, dəyər görməmək, cinsi soyuqluq və məsuliyyətdən qaçış dayanır. Bəzən qadın şüuraltı olaraq kişini evdən itələyir. Biz bu energetik boşluqları aradan qaldırırıq.</p>
+                        <h4 data-i18n="problem_xeyanet_title">Xəyanət və Evdən Uzaqlaşma</h4>
+                        <p data-i18n="problem_xeyanet_desc">Kişilərin xəyanətinin arxasında evdəki psixoloji təzyiq, dəyər görməmək, cinsi soyuqluq və məsuliyyətdən qaçış dayanır. Bəzən qadın şüuraltı olaraq kişini evdən itələyir. Biz bu energetik boşluqları aradan qaldırırıq.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-users"></i></div>
-                        <h4>Qaynana-Gəlin Münaqişələri</h4>
-                        <p>Gəlinin öz anası ilə olan uşaqlıq travmalarının gələcəyə daşınması, qaynananın hegemonluq meyli və sərhədlərin aşılması nəticəsində yaranan enerji konfliktidir.</p>
+                        <h4 data-i18n="problem_qaynana_title">Qaynana-Gəlin Münaqişələri</h4>
+                        <p data-i18n="problem_qaynana_desc">Gəlinin öz anası ilə olan uşaqlıq travmalarının gələcəyə daşınması, qaynananın hegemonluq meyli və sərhədlərin aşılması nəticəsində yaranan enerji konfliktidir.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-eye"></i></div>
-                        <h4>Güvənsizlik və Qısqanclıq</h4>
-                        <p>Həyat yoldaşının telefonunu yoxlamaq kimi hallar əslində itirmək qorxusundan, uşaqlıq travmalarından və daxili özgüvənsizlikdən irəli gəlir.</p>
+                        <h4 data-i18n="problem_guvensizlik_title">Güvənsizlik və Qısqanclıq</h4>
+                        <p data-i18n="problem_guvensizlik_desc">Həyat yoldaşının telefonunu yoxlamaq kimi hallar əslində itirmək qorxusundan, uşaqlıq travmalarından və daxili özgüvənsizlikdən irəli gəlir.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-baby"></i></div>
-                        <h4>Uşaqların Psixologiyası</h4>
-                        <p>Valideynlərin uşaqların yanında mübahisə etməsi, aqressiv davranması uşaqların gələcək həyatını və daxili dünyasını məhv edir.</p>
+                        <h4 data-i18n="problem_usaq_title">Uşaqların Psixologiyası</h4>
+                        <p data-i18n="problem_usaq_desc">Valideynlərin uşaqların yanında mübahisə etməsi, aqressiv davranması uşaqların gələcək həyatını və daxili dünyasını məhv edir.</p>
                     </div>
                 </div>
             </div>
@@ -275,33 +294,33 @@
                 <div class="problem-cards">
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-bone"></i></div>
-                        <h4>Osteoxondroz</h4>
-                        <p>Boyun, kürək, bel ağrıları — parapsixologiyaya görə sinirlərin paslanmasıdır. Boyun və çiyin ağrıları insanın həyatın yükünü təkbaşına daşımasından yaranır.</p>
+                        <h4 data-i18n="problem_osteo_title">Osteoxondroz</h4>
+                        <p data-i18n="problem_osteo_desc">Boyun, kürək, bel ağrıları — parapsixologiyaya görə sinirlərin paslanmasıdır. Boyun və çiyin ağrıları insanın həyatın yükünü təkbaşına daşımasından yaranır.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-walking"></i></div>
-                        <h4>Ayaq və Oynaq Ağrıları</h4>
-                        <p>Sol ayaqdakı keyimələr qadın cinsi ilə, sağ ayaq isə kişi cinsi ilə rabitənin pozulmasını göstərir. Ayaq ağrıları insanın qabağa getmək istəməməsi ilə bağlıdır.</p>
+                        <h4 data-i18n="problem_ayaq_title">Ayaq və Oynaq Ağrıları</h4>
+                        <p data-i18n="problem_ayaq_desc">Sol ayaqdakı keyimələr qadın cinsi ilə, sağ ayaq isə kişi cinsi ilə rabitənin pozulmasını göstərir. Ayaq ağrıları insanın qabağa getmək istəməməsi ilə bağlıdır.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-stomach"></i></div>
-                        <h4>Mədə-Bağırsaq Xəstəlikləri</h4>
-                        <p>Mədə ağrıları, xoralar sadəcə yediklərimizdən deyil, "həzm edə bilmədiyimiz" fikirlərdən, stressdən və informasiya bolluğundan yaranır.</p>
+                        <h4 data-i18n="problem_mede_title">Mədə-Bağırsaq Xəstəlikləri</h4>
+                        <p data-i18n="problem_mede_desc">Mədə ağrıları, xoralar sadəcə yediklərimizdən deyil, "həzm edə bilmədiyimiz" fikirlərdən, stressdən və informasiya bolluğundan yaranır.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-neck"></i></div>
-                        <h4>Zob və Boğaz Problemləri</h4>
-                        <p>İnsanın öz fikrini, sözünü içində boğması, sözünü vaxtında deyə bilməməsi nəticəsində boğaz çakrasında yaranan düyünlərdir.</p>
+                        <h4 data-i18n="problem_zob_title">Zob və Boğaz Problemləri</h4>
+                        <p data-i18n="problem_zob_desc">İnsanın öz fikrini, sözünü içində boğması, sözünü vaxtında deyə bilməməsi nəticəsində boğaz çakrasında yaranan düyünlərdir.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-ribbon"></i></div>
-                        <h4>Onkoloji Xəstəliklər və Mastopatiya</h4>
-                        <p>İllərlə içəridə yığılıb qalan qorxu, həsəd, paxıllıq, kin, nifrət və bağışlaya bilməmək duyğusu. İlahi enerji və çakraların təmizlənməsi ilə bədəndəki düyünlərin yox olmasına kömək edirik.</p>
+                        <h4 data-i18n="problem_onko_title">Onkoloji Xəstəliklər və Mastopatiya</h4>
+                        <p data-i18n="problem_onko_desc">İllərlə içəridə yığılıb qalan qorxu, həsəd, paxıllıq, kin, nifrət və bağışlaya bilməmək duyğusu. İlahi enerji və çakraların təmizlənməsi ilə bədəndəki düyünlərin yox olmasına kömək edirik.</p>
                     </div>
                     <div class="problem-card">
                         <div class="problem-card-icon"><i class="fas fa-eye-slash"></i></div>
-                        <h4>Göz Problemləri</h4>
-                        <p>Gözlərdə yaranan problemlər əksər hallarda insanın ətrafı görmək istəməməsi və reallıqdan qaçması ilə əlaqədar psixoloji haldır.</p>
+                        <h4 data-i18n="problem_goz_title">Göz Problemləri</h4>
+                        <p data-i18n="problem_goz_desc">Gözlərdə yaranan problemlər əksər hallarda insanın ətrafı görmək istəməməsi və reallıqdan qaçması ilə əlaqədar psixoloji haldır.</p>
                     </div>
                 </div>
             </div>
@@ -310,15 +329,15 @@
                 <div class="problem-cards">
                     <div class="problem-card full-width">
                         <div class="problem-card-icon"><i class="fas fa-wine-bottle"></i></div>
-                        <h4>Zərərli Vərdişlər və Asılılıqlar</h4>
-                        <p>İçki, qumar, siqaret və digər asılılıqlar əslində insanın zəif iradəsindən, həyatla üzləşmək istəməməsindən və məsuliyyətdən qaçışından qaynaqlanır. Biz mənəvi dəstək və terapiya ilə bu qaçışın səbəblərini aradan qaldırır, insanı öz real gücü və iradəsi ilə tanış edirik.</p>
+                        <h4 data-i18n="problem_asililiq_title">Zərərli Vərdişlər və Asılılıqlar</h4>
+                        <p data-i18n="problem_asililiq_desc">İçki, qumar, siqaret və digər asılılıqlar əslində insanın zəif iradəsindən, həyatla üzləşmək istəməməsindən və məsuliyyətdən qaçışından qaynaqlanır. Biz mənəvi dəstək və terapiya ilə bu qaçışın səbəblərini aradan qaldırır, insanı öz real gücü və iradəsi ilə tanış edirik.</p>
                     </div>
                 </div>
             </div>
 
             <div class="problem-disclaimer">
                 <i class="fas fa-info-circle"></i>
-                <p>Şahsəddin İmanlı fərdi olaraq problemin səbəbini araşdırmadan diaqnoz qoymur. Hər bir pasiyent fərdi yoxlanılır, çünki xəstəliyin əsas səbəbi hər bir kəs üçün fərqli ola bilər.</p>
+                <p data-i18n="problem_disclaimer">Şahsəddin İmanlı fərdi olaraq problemin səbəbini araşdırmadan diaqnoz qoymur. Hər bir pasiyent fərdi yoxlanılır, çünki xəstəliyin əsas səbəbi hər bir kəs üçün fərqli ola bilər.</p>
             </div>
         </div>
     </section>
@@ -330,10 +349,10 @@
                 <!-- Sol: Təqvim -->
                 <div class="calendar-side">
                     <div class="section-header" style="text-align:left;">
-                        <span class="section-tag">Rezervasiya</span>
-                        <h2 class="section-title">Seans üçün Gün Seçimi</h2>
+                        <span class="section-tag" data-i18n="reservation_tag">Rezervasiya</span>
+                        <h2 class="section-title" data-i18n="reservation_title">Seans üçün Gün Seçimi</h2>
                         <div class="section-line" style="margin-left:0;"></div>
-                        <p class="section-desc">Sizə uyğun günü seçin, WhatsApp vasitəsilə əlaqə qurun.</p>
+                        <p class="section-desc" data-i18n="reservation_desc">Sizə uyğun günü seçin, WhatsApp vasitəsilə əlaqə qurun.</p>
                     </div>
                     <div class="calendar-wrapper">
                         <div class="calendar-header">
@@ -341,8 +360,8 @@
                             <h3 class="calendar-month" id="calendarMonth"></h3>
                             <button class="calendar-nav" id="calendarNext"><i class="fas fa-chevron-right"></i></button>
                         </div>
-                        <div class="calendar-weekdays">
-                            <span>BE</span><span>ÇA</span><span>Ç</span><span>CA</span><span>C</span><span>Ş</span><span>B</span>
+                        <div class="calendar-weekdays" id="calendarWeekdays">
+                            <span data-i18n="cal_mon">BE</span><span data-i18n="cal_tue">ÇA</span><span data-i18n="cal_wed">Ç</span><span data-i18n="cal_thu">CA</span><span data-i18n="cal_fri">C</span><span data-i18n="cal_sat">Ş</span><span data-i18n="cal_sun">B</span>
                         </div>
                         <div class="calendar-days" id="calendarDays"></div>
                     </div>
@@ -350,17 +369,17 @@
                 <!-- Sağ: Bloq -->
                 <div class="blog-side">
                     <div class="section-header" style="text-align:left;">
-                        <span class="section-tag">Bloq</span>
-                        <h2 class="section-title">Faydalı Mövzular</h2>
+                        <span class="section-tag" data-i18n="blog_tag">Bloq</span>
+                        <h2 class="section-title" data-i18n="blog_title">Faydalı Mövzular</h2>
                         <div class="section-line" style="margin-left:0;"></div>
-                        <p class="section-desc">Şəfa, sağlamlıq və mənəvi inkişaf haqqında yazılar.</p>
+                        <p class="section-desc" data-i18n="blog_desc">Şəfa, sağlamlıq və mənəvi inkişaf haqqında yazılar.</p>
                     </div>
                     <div class="blog-list">
                         <a href="#" class="blog-card">
                             <div class="blog-card-icon"><i class="fas fa-brain"></i></div>
                             <div class="blog-card-content">
-                                <h4>Panik atak nədir və necə yaranır?</h4>
-                                <p>Panik atakın əsas səbəbləri və ondan qurtulma yolları haqqında.</p>
+                                <h4 data-i18n="blog_1_title">Panik atak nədir və necə yaranır?</h4>
+                                <p data-i18n="blog_1_desc">Panik atakın əsas səbəbləri və ondan qurtulma yolları haqqında.</p>
                                 <span class="blog-date"><i class="fas fa-calendar-alt"></i> 5 Mart 2026</span>
                             </div>
                             <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
@@ -368,8 +387,8 @@
                         <a href="#" class="blog-card">
                             <div class="blog-card-icon"><i class="fas fa-heart"></i></div>
                             <div class="blog-card-content">
-                                <h4>Ailə münasibətlərində enerji balansı</h4>
-                                <p>Ailədaxili problemlərin mənəvi kökləri və həll yolları.</p>
+                                <h4 data-i18n="blog_2_title">Ailə münasibətlərində enerji balansı</h4>
+                                <p data-i18n="blog_2_desc">Ailədaxili problemlərin mənəvi kökləri və həll yolları.</p>
                                 <span class="blog-date"><i class="fas fa-calendar-alt"></i> 28 Fevral 2026</span>
                             </div>
                             <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
@@ -377,8 +396,8 @@
                         <a href="#" class="blog-card">
                             <div class="blog-card-icon"><i class="fas fa-wind"></i></div>
                             <div class="blog-card-content">
-                                <h4>Nəfəs terapiyasının gücü</h4>
-                                <p>Tantra yoqa nəfəs texnikası ilə stresdən azad olma.</p>
+                                <h4 data-i18n="blog_3_title">Nəfəs terapiyasının gücü</h4>
+                                <p data-i18n="blog_3_desc">Tantra yoqa nəfəs texnikası ilə stresdən azad olma.</p>
                                 <span class="blog-date"><i class="fas fa-calendar-alt"></i> 20 Fevral 2026</span>
                             </div>
                             <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
@@ -386,8 +405,8 @@
                         <a href="#" class="blog-card">
                             <div class="blog-card-icon"><i class="fas fa-eye"></i></div>
                             <div class="blog-card-content">
-                                <h4>Bəsirət gözü nədir?</h4>
-                                <p>Qəlb gözü ilə diaqnostika və şəfalanma prosesi.</p>
+                                <h4 data-i18n="blog_4_title">Bəsirət gözü nədir?</h4>
+                                <p data-i18n="blog_4_desc">Qəlb gözü ilə diaqnostika və şəfalanma prosesi.</p>
                                 <span class="blog-date"><i class="fas fa-calendar-alt"></i> 15 Fevral 2026</span>
                             </div>
                             <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
@@ -402,63 +421,63 @@
     <section class="section faq" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Sual-Cavab</span>
-                <h2 class="section-title">Tez-tez Verilən Suallar</h2>
+                <span class="section-tag" data-i18n="faq_tag">Sual-Cavab</span>
+                <h2 class="section-title" data-i18n="faq_title">Tez-tez Verilən Suallar</h2>
                 <div class="section-line"></div>
             </div>
             <div class="faq-grid">
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Cadu, əməl, bədnəzər varmı?</span>
+                        <span data-i18n="faq_q1">Cadu, əməl, bədnəzər varmı?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Şahsəddin bəy bunları qətiyyətlə rədd edir. O bildirir ki, bunlar illüziyadır, insanın özünü təlqin etməsidir (hipnozdur). Bundan qorunmağın tək yolu <strong>"Lə İlahə İlləllah"</strong> zikridir.</p>
+                        <p data-i18n-html="faq_a1">Şahsəddin bəy bunları qətiyyətlə rədd edir. O bildirir ki, bunlar illüziyadır, insanın özünü təlqin etməsidir (hipnozdur). Bundan qorunmağın tək yolu <strong>"Lə İlahə İlləllah"</strong> zikridir.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Xəstəliklərin əsas səbəbi nədir?</span>
+                        <span data-i18n="faq_q2">Xəstəliklərin əsas səbəbi nədir?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Xəstəliyin kökündə nifrət, kin, paxıllıq, bağışlaya bilməmək və ən əsası <strong>"Allahla rabitənin pozulması"</strong> dayanır.</p>
+                        <p data-i18n-html="faq_a2">Xəstəliyin kökündə nifrət, kin, paxıllıq, bağışlaya bilməmək və ən əsası <strong>"Allahla rabitənin pozulması"</strong> dayanır.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Bütün xəstələrə eyni yanaşılırmı?</span>
+                        <span data-i18n="faq_q3">Bütün xəstələrə eyni yanaşılırmı?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Xeyr, heç kimə qiyabi diaqnoz qoyulmur. Hər insanın problemi barmaq izi kimi fərdi və fərqlidir. Tək xəstənin özü yox, onun genetikası və ailə üzvləri də araşdırılır.</p>
+                        <p data-i18n="faq_a3">Xeyr, heç kimə qiyabi diaqnoz qoyulmur. Hər insanın problemi barmaq izi kimi fərdi və fərqlidir. Tək xəstənin özü yox, onun genetikası və ailə üzvləri də araşdırılır.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Onlayn seans mümkündürmü?</span>
+                        <span data-i18n="faq_q4">Onlayn seans mümkündürmü?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Bəli, dünyanın istənilən yerindən <strong>WhatsApp</strong> və ya <strong>Imo</strong> vasitəsilə onlayn qəbul mümkündür. Enerji məsafə tanımır.</p>
+                        <p data-i18n-html="faq_a4">Bəli, dünyanın istənilən yerindən <strong>WhatsApp</strong> və ya <strong>Imo</strong> vasitəsilə onlayn qəbul mümkündür. Enerji məsafə tanımır.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Müalicədə dərman istifadə olunurmu?</span>
+                        <span data-i18n="faq_q5">Müalicədə dərman istifadə olunurmu?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Xeyr, heç bir dərman və ya bitki tərkibli vasitə istifadə edilmir. Şəfalanma yalnız parapsixoloji seanslar, sevgi enerjisi və Tantra yoqa (nəfəs terapiyası) vasitəsilə həyata keçirilir.</p>
+                        <p data-i18n="faq_a5">Xeyr, heç bir dərman və ya bitki tərkibli vasitə istifadə edilmir. Şəfalanma yalnız parapsixoloji seanslar, sevgi enerjisi və Tantra yoqa (nəfəs terapiyası) vasitəsilə həyata keçirilir.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>İş qrafiki necədir?</span>
+                        <span data-i18n="faq_q6">İş qrafiki necədir?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Hər gün səhər <strong>08:00</strong>-dən axşam <strong>21:00</strong>-a qədər qəbul aparılır. Həm canlı (əyani), həm də onlayn qəbul mövcuddur.</p>
+                        <p data-i18n-html="faq_a6">Hər gün səhər <strong>08:00</strong>-dən axşam <strong>21:00</strong>-a qədər qəbul aparılır. Həm canlı (əyani), həm də onlayn qəbul mövcuddur.</p>
                     </div>
                 </div>
             </div>
@@ -469,43 +488,43 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Əlaqə</span>
-                <h2 class="section-title">Bizimlə Əlaqə</h2>
+                <span class="section-tag" data-i18n="contact_tag">Əlaqə</span>
+                <h2 class="section-title" data-i18n="contact_title">Bizimlə Əlaqə</h2>
                 <div class="section-line"></div>
             </div>
             <div class="contact-grid">
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                    <h4>İş Qrafiki</h4>
-                    <p>Hər gün: 08:00 — 21:00</p>
+                    <h4 data-i18n="contact_schedule_title">İş Qrafiki</h4>
+                    <p data-i18n="contact_schedule">Hər gün: 08:00 — 21:00</p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                    <h4>Telefon</h4>
+                    <h4 data-i18n="contact_phone_title">Telefon</h4>
                     <p><a href="tel:+994518499998">+994 51 849 99 98</a></p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <h4>E-poçt</h4>
+                    <h4 data-i18n="contact_email_title">E-poçt</h4>
                     <p><a href="mailto:Shahseddinimanli2016@gmail.com">Shahseddinimanli2016@gmail.com</a></p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <h4>Ünvan</h4>
-                    <p>Bakı şəhəri, 9-cu mikrorayon</p>
-                    <p class="contact-sub">Naxçıvan: Şərur, "Əfsanə" özəl klinikası</p>
+                    <h4 data-i18n="contact_address_title">Ünvan</h4>
+                    <p data-i18n="contact_address">Bakı şəhəri, 9-cu mikrorayon</p>
+                    <p class="contact-sub" data-i18n="contact_address_sub">Naxçıvan: Şərur, "Əfsanə" özəl klinikası</p>
                 </div>
             </div>
             <div class="contact-formats">
                 <div class="format-card">
                     <i class="fas fa-user-friends"></i>
-                    <h4>Canlı Qəbul</h4>
-                    <p>Bakı və Naxçıvanda əyani görüş</p>
+                    <h4 data-i18n="contact_live">Canlı Qəbul</h4>
+                    <p data-i18n="contact_live_desc">Bakı və Naxçıvanda əyani görüş</p>
                 </div>
                 <div class="format-card">
                     <i class="fas fa-video"></i>
-                    <h4>Onlayn Qəbul</h4>
-                    <p>WhatsApp / Imo ilə dünyanın hər yerindən</p>
+                    <h4 data-i18n="contact_online">Onlayn Qəbul</h4>
+                    <p data-i18n="contact_online_desc">WhatsApp / Imo ilə dünyanın hər yerindən</p>
                 </div>
             </div>
         </div>
@@ -517,15 +536,15 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Şahsəddin İmanlı</h3>
-                    <p>Parapsixoloq & Tantra Yoqa Müəllimi</p>
+                    <p data-i18n="footer_subtitle">Parapsixoloq & Tantra Yoqa Müəllimi</p>
                 </div>
                 <div class="footer-contact">
-                    <h4>Bizimlə Əlaqə</h4>
+                    <h4 data-i18n="footer_contact">Bizimlə Əlaqə</h4>
                     <p><i class="fas fa-phone-alt"></i> +994 51 849 99 98</p>
                     <p><i class="fas fa-envelope"></i> Shahseddinimanli2016@gmail.com</p>
                 </div>
                 <div class="footer-social">
-                    <h4>Bizi İzləyin</h4>
+                    <h4 data-i18n="footer_follow">Bizi İzləyin</h4>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -536,7 +555,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Şahsəddin İmanlı. Bütün hüquqlar qorunur.</p>
+                <p data-i18n-html="footer_rights">&copy; 2026 Şahsəddin İmanlı. Bütün hüquqlar qorunur.</p>
             </div>
         </div>
     </footer>
@@ -548,6 +567,7 @@
         <span class="whatsapp-pulse delay"></span>
     </a>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

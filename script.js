@@ -4,6 +4,51 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // === LANGUAGE SWITCHER ===
+    let currentLang = localStorage.getItem('lang') || 'az';
+
+    function applyTranslations(lang) {
+        const t = translations[lang];
+        if (!t) return;
+
+        document.documentElement.lang = lang;
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+
+        // Text content
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.textContent = t[key];
+        });
+
+        // HTML content (for <strong> tags etc.)
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            if (t[key]) el.innerHTML = t[key];
+        });
+
+        // Placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (t[key]) el.placeholder = t[key];
+        });
+
+        // Update active lang button
+        document.querySelectorAll('.lang-option').forEach(opt => {
+            opt.classList.toggle('active', opt.dataset.lang === lang);
+        });
+
+        // Re-render calendar with new language
+        if (typeof renderCalendar === 'function') renderCalendar();
+    }
+
+    // Lang switcher click
+    document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            applyTranslations(opt.dataset.lang);
+        });
+    });
+
     // === NAVBAR SCROLL ===
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -169,19 +214,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const calendarNext = document.getElementById('calendarNext');
 
     if (calendarDays) {
-        const months = ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun', 'İyul', 'Avqust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr'];
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         let currentMonth = today.getMonth();
         let currentYear = today.getFullYear();
 
-        function renderCalendar() {
+        window.renderCalendar = function() {
+            const t = translations[currentLang];
+            const months = t.cal_months;
+
             calendarDays.innerHTML = '';
             calendarMonth.textContent = months[currentMonth] + ' ' + currentYear;
 
             const firstDay = new Date(currentYear, currentMonth, 1).getDay();
             const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            // Bazar ertəsi = 0 üçün shift (JS-də Bazar=0)
             const startDay = firstDay === 0 ? 6 : firstDay - 1;
 
             for (let i = 0; i < startDay; i++) {
@@ -209,19 +255,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     dayEl.classList.add('disabled');
                 } else {
                     dayEl.addEventListener('click', () => {
-                        const selectedDay = day;
-                        const selectedMonth = months[currentMonth];
-                        const selectedYear = currentYear;
-                        const message = encodeURIComponent(
-                            `Salam, sizinlə ${selectedDay} ${selectedMonth.toLowerCase()} ${selectedYear} tarixində onlayn və ya canlı seansa qoşulmaq istəyirəm. Günün hansı saatında uyğundur?`
-                        );
-                        window.open('https://wa.me/994518499998?text=' + message, '_blank');
+                        const msgTemplate = t.cal_whatsapp_msg;
+                        const msg = msgTemplate
+                            .replace('{day}', day)
+                            .replace('{month}', months[currentMonth].toLowerCase())
+                            .replace('{year}', currentYear);
+                        window.open('https://wa.me/994518499998?text=' + encodeURIComponent(msg), '_blank');
                     });
                 }
 
                 calendarDays.appendChild(dayEl);
             }
-        }
+        };
 
         calendarPrev.addEventListener('click', () => {
             const minMonth = today.getMonth();
@@ -255,9 +300,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const tarix = tarixInput ? tarixInput.value : '';
 
             if (ad && soyad && telefon) {
+                const t = translations[currentLang];
                 const btn = form.querySelector('button[type="submit"]');
                 const originalText = btn.textContent;
-                btn.textContent = 'Göndərilir...';
+                btn.textContent = t.form_sending;
                 btn.disabled = true;
 
                 // Google Sheets-ə göndər
@@ -269,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     url += '&seansGunu=' + encodeURIComponent(tarix);
                 }
                 fetch(url, { mode: 'no-cors' }).then(() => {
-                    btn.textContent = 'Göndərildi!';
+                    btn.textContent = t.form_sent;
                     btn.style.background = '#28a745';
                     form.reset();
                     setTimeout(() => {
@@ -280,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).catch(() => {
                     btn.textContent = originalText;
                     btn.disabled = false;
-                    alert('Xəta baş verdi, zəhmət olmasa yenidən cəhd edin.');
+                    alert(t.form_error);
                 });
             }
         });
@@ -289,7 +335,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Xüsusi validasiya mesajı
     document.querySelectorAll('#callForm input, #heroCallForm input').forEach(input => {
         input.addEventListener('invalid', () => {
-            input.setCustomValidity('Zəhmət olmasa bu xananı doldurun');
+            const t = translations[currentLang];
+            input.setCustomValidity(t.form_required);
         });
         input.addEventListener('input', () => {
             input.setCustomValidity('');
@@ -345,5 +392,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+
+    // Apply saved language on load
+    if (currentLang !== 'az') {
+        applyTranslations(currentLang);
+    } else {
+        // Just mark AZ as active
+        document.querySelectorAll('.lang-option').forEach(opt => {
+            opt.classList.toggle('active', opt.dataset.lang === 'az');
+        });
+    }
 
 });
