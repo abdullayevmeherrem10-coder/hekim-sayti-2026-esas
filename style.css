@@ -553,13 +553,14 @@ img {
 /* === ABOUT SECTION === */
 .about {
     background: var(--bg-secondary);
-    padding-top: 96px;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 .about-content {
     display: grid;
     grid-template-columns: 400px 1fr;
-    gap: 60px;
+    gap: 35px;
     align-items: start;
 }
 
@@ -1969,5 +1970,41 @@ img {
     .btn {
         padding: 12px 24px;
         font-size: 0.9rem;
+    }
+}
+
+/* === About Hero Quote === */
+.about-quote-header {
+    padding: 10px 0 15px;
+    margin-bottom: 25px;
+}
+
+.about-hero-quote {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gold-dark);
+    line-height: 1.7;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+    padding: 15px 25px;
+    border-left: 4px solid var(--gold);
+    background: var(--bg-secondary);
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .about-hero-quote {
+        font-size: 1.15rem;
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero-quote {
+        font-size: 1.05rem;
+        padding: 14px 16px;
     }
 }
