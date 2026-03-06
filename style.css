@@ -166,38 +166,13 @@ img {
     font-size: 1rem;
     transition: var(--transition);
     border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-socials a:hover {
     transform: scale(1.15);
-}
-
-.navbar-socials a[aria-label="TikTok"] {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-socials a[aria-label="Facebook"] {
-    color: #4267B2;
-    background: rgba(66, 103, 178, 0.15);
-    border-color: rgba(66, 103, 178, 0.4);
-}
-
-.navbar-socials a[aria-label="Instagram"] {
-    color: #E1306C;
-    background: rgba(225, 48, 108, 0.15);
-    border-color: rgba(225, 48, 108, 0.4);
-}
-
-.navbar-socials a[aria-label="WhatsApp"] {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-socials a[aria-label="YouTube"] {
-    color: #FF0000;
-    background: rgba(255, 0, 0, 0.15);
-    border-color: rgba(255, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .hamburger {
