@@ -373,9 +373,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const disclaimerClose = document.getElementById('disclaimerClose');
     const disclaimerAccept = document.getElementById('disclaimerAccept');
 
+    if (sessionStorage.getItem('disclaimerAccepted') && disclaimerOverlay) {
+        disclaimerOverlay.classList.add('hidden');
+    }
+
     function closeDisclaimer() {
         if (disclaimerOverlay) {
             disclaimerOverlay.classList.add('hidden');
+            sessionStorage.setItem('disclaimerAccepted', '1');
         }
     }
 
