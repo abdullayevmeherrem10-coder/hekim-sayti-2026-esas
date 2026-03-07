@@ -2016,7 +2016,7 @@ img {
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 
     .hero-text {
