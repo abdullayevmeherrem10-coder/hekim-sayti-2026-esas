@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Məqalə | Şahsəddin İmanlı</title>
+    <link rel="icon" type="image/png" href="esas-loqo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-detail {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+        .blog-detail-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        .blog-detail-back:hover {
+            color: var(--gold-dark);
+        }
+        .blog-detail-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .blog-detail-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            display: block;
+        }
+        .blog-detail-image {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-card);
+        }
+        .blog-detail-body {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .blog-detail-body h1,
+        .blog-detail-body h2,
+        .blog-detail-body h3 {
+            font-family: var(--font-display);
+            color: var(--text-primary);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        .blog-detail-body p {
+            margin-bottom: 1em;
+        }
+        .blog-detail-body ul,
+        .blog-detail-body ol {
+            margin-bottom: 1em;
+            padding-left: 1.5em;
+        }
+        .blog-detail-body blockquote {
+            border-left: 4px solid var(--gold);
+            padding: 12px 20px;
+            margin: 1.5em 0;
+            background: var(--bg-secondary);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+        .blog-detail-body b, .blog-detail-body strong {
+            color: var(--text-primary);
+        }
+        .blog-detail-loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        @media (max-width: 600px) {
+            .blog-detail { margin-top: 100px; }
+            .blog-detail-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" style="background:var(--bg-primary);box-shadow:0 2px 20px rgba(0,0,0,0.08);">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-logo"></a>
+            <ul class="navbar-menu" id="navMenu">
+                <li><a href="index.html#about" class="nav-link">Haqqında</a></li>
+                <li><a href="index.html#services" class="nav-link">Xidmətlər</a></li>
+                <li><a href="index.html#problems" class="nav-link">Problemlər</a></li>
+                <li><a href="index.html#faq" class="nav-link">Sual-Cavab</a></li>
+                <li><a href="index.html#contact" class="nav-link">Əlaqə</a></li>
+            </ul>
+            <a href="https://wa.link/wcams9" target="_blank" class="btn-session">Seansa Yazıl</a>
+            <button class="hamburger" id="hamburger" aria-label="Menyu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="blog-detail" id="blogDetail">
+        <div class="blog-detail-loading">
+            <i class="fas fa-spinner fa-spin"></i> Yüklənir...
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Şahsəddin İmanlı. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const CONTENTFUL_SPACE = 'q3fe87ca4p3k';
+        const CONTENTFUL_TOKEN = 'uyQ8WH4Rhs40Y1OBAoXI9nzQGunrNUAtEU4lizTZL-o';
+
+        // Rich text renderer
+        function renderRichText(node) {
+            if (!node) return '';
+            if (typeof node === 'string') return node;
+            if (node.nodeType === 'text') {
+                let text = node.value || '';
+                if (node.marks) {
+                    node.marks.forEach(mark => {
+                        if (mark.type === 'bold') text = `<strong>${text}</strong>`;
+                        if (mark.type === 'italic') text = `<em>${text}</em>`;
+                        if (mark.type === 'underline') text = `<u>${text}</u>`;
+                    });
+                }
+                return text;
+            }
+            const children = (node.content || []).map(renderRichText).join('');
+            switch (node.nodeType) {
+                case 'document': return children;
+                case 'paragraph': return `<p>${children}</p>`;
+                case 'heading-1': return `<h1>${children}</h1>`;
+                case 'heading-2': return `<h2>${children}</h2>`;
+                case 'heading-3': return `<h3>${children}</h3>`;
+                case 'heading-4': return `<h4>${children}</h4>`;
+                case 'blockquote': return `<blockquote>${children}</blockquote>`;
+                case 'unordered-list': return `<ul>${children}</ul>`;
+                case 'ordered-list': return `<ol>${children}</ol>`;
+                case 'list-item': return `<li>${children}</li>`;
+                case 'hr': return '<hr>';
+                case 'hyperlink':
+                    const uri = node.data && node.data.uri ? node.data.uri : '#';
+                    return `<a href="${uri}" target="_blank" rel="noopener">${children}</a>`;
+                default: return children;
+            }
+        }
+
+        async function loadPost() {
+            const container = document.getElementById('blogDetail');
+            const params = new URLSearchParams(window.location.search);
+            const postId = params.get('id');
+            if (!postId) {
+                container.innerHTML = '<p style="text-align:center;color:#999;padding:80px 0;">Məqalə tapılmadı.</p>';
+                return;
+            }
+            try {
+                const res = await fetch(
+                    `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/entries/${postId}?access_token=${CONTENTFUL_TOKEN}`
+                );
+                const item = await res.json();
+                if (!item.fields) {
+                    container.innerHTML = '<p style="text-align:center;color:#999;padding:80px 0;">Məqalə tapılmadı.</p>';
+                    return;
+                }
+                const f = item.fields;
+                document.title = f.title + ' | Şahsəddin İmanlı';
+
+                let imgHtml = '';
+                if (f.image && f.image.sys) {
+                    const assetRes = await fetch(
+                        `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/assets/${f.image.sys.id}?access_token=${CONTENTFUL_TOKEN}`
+                    );
+                    const asset = await assetRes.json();
+                    if (asset.fields && asset.fields.file) {
+                        imgHtml = `<img class="blog-detail-image" src="https:${asset.fields.file.url}" alt="${f.title}">`;
+                    }
+                }
+
+                const bodyHtml = f.content ? renderRichText(f.content) : '';
+
+                container.innerHTML = `
+                    <a href="index.html#about" class="blog-detail-back"><i class="fas fa-arrow-left"></i> Geri qayıt</a>
+                    <h1 class="blog-detail-title">${f.title}</h1>
+                    <span class="blog-detail-date">${f.date || ''}</span>
+                    ${imgHtml}
+                    <div class="blog-detail-body">${bodyHtml}</div>
+                `;
+            } catch (err) {
+                container.innerHTML = '<p style="text-align:center;color:#999;padding:80px 0;">Məqalə yüklənə bilmədi.</p>';
+            }
+        }
+
+        loadPost();
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

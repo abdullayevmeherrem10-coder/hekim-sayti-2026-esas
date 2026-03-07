@@ -528,16 +528,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             grid.innerHTML = data.items.map(item => {
                 const f = item.fields;
+                const id = item.sys.id;
                 const imgId = f.image && f.image.sys ? f.image.sys.id : null;
                 const imgUrl = imgId ? assets[imgId] : null;
                 return `
-                    <div class="blog-post-card">
+                    <a href="blog-post.html?id=${id}" class="blog-post-card" style="text-decoration:none;color:inherit;cursor:pointer;">
                         ${imgUrl ? `<img src="${imgUrl}" alt="${f.title}">` : `<div style="height:180px;background:#f0f7f3;display:flex;align-items:center;justify-content:center;color:#aaa;"><i class="fas fa-image" style="font-size:2rem;"></i></div>`}
                         <div class="blog-post-info">
                             <h4>${f.title}</h4>
                             <span class="blog-post-date">${f.date || ''}</span>
                         </div>
-                    </div>
+                    </a>
                 `;
             }).join('');
         } catch (err) {
