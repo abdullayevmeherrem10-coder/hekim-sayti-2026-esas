@@ -104,12 +104,13 @@ img {
 }
 
 .nav-link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
-    letter-spacing: 0.3px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
     position: relative;
     padding: 4px 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .nav-link::after {
@@ -137,55 +138,57 @@ img {
 .lang-switcher {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-right: 12px;
+    gap: 10px;
+    margin-right: 16px;
 }
 
 .lang-option {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 8px;
+    padding: 6px 10px;
+    border-radius: 10px;
     transition: var(--transition);
-    opacity: 0.6;
+    opacity: 0.65;
 }
 
 .lang-option:hover {
     opacity: 1;
     background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
 }
 
 .lang-option.active {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.22);
 }
 
 .lang-option img {
-    width: 24px;
-    height: 16px;
+    width: 30px;
+    height: 20px;
     object-fit: cover;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
 .lang-option span {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 700;
     color: #ffffff;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-session {
     background: #ffffff;
     color: #2d8157;
-    padding: 10px 24px;
+    padding: 11px 28px;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-weight: 700;
+    font-size: 0.9rem;
     letter-spacing: 0.5px;
     transition: var(--transition);
 }
@@ -675,6 +678,7 @@ img {
     color: var(--text-secondary);
     margin-bottom: 10px;
     font-size: 0.95rem;
+    text-align: justify;
 }
 
 .about-lead {
@@ -2094,7 +2098,8 @@ img {
 /* === About Hero Quote === */
 .about-quote-header {
     padding: 5px 0 0;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .about-hero-quote {
