@@ -547,12 +547,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchBlogPosts();
 
-    // === GİRİŞ — Contentful admin panelinə yönləndir ===
+    // === GİRİŞ — Login popup, düzgün şifrədə Contentful açılır ===
     const navLoginBtn = document.getElementById('navLoginBtn');
+    const adminLoginOverlay = document.getElementById('adminLoginOverlay');
+    const adminLoginClose = document.getElementById('adminLoginClose');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const loginError = document.getElementById('loginError');
+    const togglePass = document.getElementById('togglePass');
+
     if (navLoginBtn) {
         navLoginBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.open('https://app.contentful.com', '_blank');
+            adminLoginOverlay.classList.add('active');
+            if (loginError) loginError.textContent = '';
+        });
+    }
+
+    if (adminLoginClose) {
+        adminLoginClose.addEventListener('click', () => {
+            adminLoginOverlay.classList.remove('active');
+        });
+    }
+
+    if (adminLoginOverlay) {
+        adminLoginOverlay.addEventListener('click', (e) => {
+            if (e.target === adminLoginOverlay) adminLoginOverlay.classList.remove('active');
+        });
+    }
+
+    if (togglePass) {
+        togglePass.addEventListener('click', () => {
+            const inp = document.getElementById('adminPassword');
+            const icon = togglePass.querySelector('i');
+            if (inp.type === 'password') {
+                inp.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                inp.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        });
+    }
+
+    if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            if (username === 'Novokuzneck' && password === 'Dudenge1!') {
+                adminLoginOverlay.classList.remove('active');
+                adminLoginForm.reset();
+                window.open('https://app.contentful.com', '_blank');
+            } else {
+                loginError.textContent = 'İstifadəçi adı və ya şifrə yanlışdır.';
+            }
         });
     }
 
