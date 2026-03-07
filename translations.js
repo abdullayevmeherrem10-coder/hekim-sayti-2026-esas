@@ -23,7 +23,7 @@ const translations = {
 
         // Hero
         hero_attention: "Diqqət !",
-        hero_text: "Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Müalicə yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.",
+        hero_text: "Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Onun müalicələri yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.",
         hero_btn: "Seansa Yazıl",
         hero_form_title: "Zəng Sifarişi",
         hero_form_desc: "Qısa zamanda əlaqə saxlamaq üçün nömrənizi yazın.",
