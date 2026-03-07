@@ -417,7 +417,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    align-items: stretch;
+    align-items: start;
     padding: 60px 0;
     position: relative;
     z-index: 2;
