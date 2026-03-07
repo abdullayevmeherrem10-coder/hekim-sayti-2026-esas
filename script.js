@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Re-render calendar with new language
         if (typeof renderCalendar === 'function') renderCalendar();
         if (typeof renderHeroCalendar === 'function') renderHeroCalendar();
+
+        // Re-fetch blog posts in new language
+        if (typeof fetchBlogPosts === 'function') fetchBlogPosts();
     }
 
     // Lang switcher click
@@ -511,14 +514,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // === FAYDALI MƏLUMATLAR — CONTENTFUL BLOG ===
     const CONTENTFUL_SPACE = 'q3fe87ca4p3k';
     const CONTENTFUL_TOKEN = 'uyQ8WH4Rhs40Y1OBAoXI9nzQGunrNUAtEU4lizTZL-o';
+    const LANG_TO_LOCALE = { az: 'az', ru: 'ru', en: 'en-US', tr: 'tr' };
 
     async function fetchBlogPosts() {
         const grid = document.getElementById('blogGrid');
         if (!grid) return;
         grid.innerHTML = '<p style="color:#999;font-size:0.9rem;">Yüklənir...</p>';
+        const locale = LANG_TO_LOCALE[currentLang] || 'az';
         try {
             const res = await fetch(
-                `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/entries?access_token=${CONTENTFUL_TOKEN}&content_type=blogPost&include=1&order=-sys.createdAt`
+                `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/entries?access_token=${CONTENTFUL_TOKEN}&content_type=blogPost&include=1&order=-sys.createdAt&locale=${locale}`
             );
             const data = await res.json();
             if (!data.items || data.items.length === 0) {

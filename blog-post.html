@@ -134,6 +134,9 @@
     <script>
         const CONTENTFUL_SPACE = 'q3fe87ca4p3k';
         const CONTENTFUL_TOKEN = 'uyQ8WH4Rhs40Y1OBAoXI9nzQGunrNUAtEU4lizTZL-o';
+        const LANG_TO_LOCALE = { az: 'az', ru: 'ru', en: 'en-US', tr: 'tr' };
+        const currentLang = localStorage.getItem('lang') || 'az';
+        const locale = LANG_TO_LOCALE[currentLang] || 'az';
 
         // Rich text renderer
         function renderRichText(node) {
@@ -180,7 +183,7 @@
             }
             try {
                 const res = await fetch(
-                    `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/entries/${postId}?access_token=${CONTENTFUL_TOKEN}`
+                    `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/entries/${postId}?access_token=${CONTENTFUL_TOKEN}&locale=${locale}`
                 );
                 const item = await res.json();
                 if (!item.fields) {
@@ -193,7 +196,7 @@
                 let imgHtml = '';
                 if (f.image && f.image.sys) {
                     const assetRes = await fetch(
-                        `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/assets/${f.image.sys.id}?access_token=${CONTENTFUL_TOKEN}`
+                        `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/assets/${f.image.sys.id}?access_token=${CONTENTFUL_TOKEN}&locale=${locale}`
                     );
                     const asset = await assetRes.json();
                     if (asset.fields && asset.fields.file) {
