@@ -536,15 +536,16 @@ document.addEventListener('DOMContentLoaded', () => {
     renderBlogGrid();
 
     // === ADMIN LOGIN ===
-    const adminTriggerBtn = document.getElementById('adminTriggerBtn');
+    const navLoginBtn = document.getElementById('navLoginBtn');
     const adminLoginOverlay = document.getElementById('adminLoginOverlay');
     const adminLoginClose = document.getElementById('adminLoginClose');
     const adminLoginForm = document.getElementById('adminLoginForm');
     const loginError = document.getElementById('loginError');
     const togglePass = document.getElementById('togglePass');
 
-    if (adminTriggerBtn) {
-        adminTriggerBtn.addEventListener('click', () => {
+    if (navLoginBtn) {
+        navLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             adminLoginOverlay.classList.add('active');
             loginError.textContent = '';
         });
