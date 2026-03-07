@@ -128,7 +128,7 @@
 }
 
 .hero-calendar-box,
-.hero .hero-form {
+.hero-form {
     border: 1.5px solid var(--gold);
     box-shadow: 0 4px 24px rgba(45, 129, 87, 0.1);
 }
