@@ -710,14 +710,21 @@ img {
     background: rgba(45, 129, 87, 0.08);
 }
 
-.highlight-item i {
+.highlight-item i,
+.highlight-icon {
     color: var(--gold);
     font-size: 1.1rem;
     width: 20px;
     text-align: center;
 }
 
-.highlight-item span {
+.highlight-icon {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.highlight-item span:not(.highlight-icon) {
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
