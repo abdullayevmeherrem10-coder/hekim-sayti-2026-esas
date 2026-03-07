@@ -100,23 +100,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Disclaimer Modal -->
-    <div class="disclaimer-overlay" id="disclaimerOverlay">
-        <div class="disclaimer-modal">
-            <button class="disclaimer-close" id="disclaimerClose"><i class="fas fa-times"></i></button>
-            <h3 class="disclaimer-title"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="hero_attention">Diqqət !</span></h3>
-            <p class="disclaimer-text" data-i18n-html="hero_text">Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Onun müalicələri yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.</p>
-            <button class="btn btn-primary disclaimer-accept" id="disclaimerAccept"><span data-i18n="disclaimer_accept">Anladım</span></button>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-particles" id="particles"></div>
-        <div class="container">
+            <!-- Hero Content - same container as about -->
             <div class="hero-content">
                 <div class="hero-calendar-box animate-fade-up">
                     <h3 class="hero-form-title" data-i18n="reservation_title">Seans üçün Gün Seçimi</h3>
@@ -134,34 +118,49 @@
                     </div>
                 </div>
                 <div class="hero-form animate-fade-up">
-                <h3 class="hero-form-title" data-i18n="hero_form_title">Zəng Sifarişi</h3>
-                <p class="hero-form-desc" data-i18n="hero_form_desc">Qısa zamanda əlaqə saxlamaq üçün nömrənizi yazın.</p>
-                <form class="hero-call-form" id="heroCallForm">
-                    <div class="form-group">
-                        <div class="input-icon"><i class="fas fa-user"></i></div>
-                        <input type="text" name="ad" data-i18n-placeholder="placeholder_name" placeholder="AD" required>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-icon"><i class="fas fa-user"></i></div>
-                        <input type="text" name="soyad" data-i18n-placeholder="placeholder_surname" placeholder="SOYAD" required>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-icon"><i class="fas fa-phone"></i></div>
-                        <div class="phone-input">
-                            <span class="phone-prefix">+994</span>
-                            <input type="tel" name="telefon" data-i18n-placeholder="placeholder_phone" placeholder="TELEFON NÖMRƏSİ" required>
+                    <h3 class="hero-form-title" data-i18n="hero_form_title">Zəng Sifarişi</h3>
+                    <p class="hero-form-desc" data-i18n="hero_form_desc">Qısa zamanda əlaqə saxlamaq üçün nömrənizi yazın.</p>
+                    <form class="hero-call-form" id="heroCallForm">
+                        <div class="form-group">
+                            <div class="input-icon"><i class="fas fa-user"></i></div>
+                            <input type="text" name="ad" data-i18n-placeholder="placeholder_name" placeholder="AD" required>
                         </div>
+                        <div class="form-group">
+                            <div class="input-icon"><i class="fas fa-user"></i></div>
+                            <input type="text" name="soyad" data-i18n-placeholder="placeholder_surname" placeholder="SOYAD" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon"><i class="fas fa-phone"></i></div>
+                            <div class="phone-input">
+                                <span class="phone-prefix">+994</span>
+                                <input type="tel" name="telefon" data-i18n-placeholder="placeholder_phone" placeholder="TELEFON NÖMRƏSİ" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-gold btn-full" data-i18n="btn_submit">Müraciət Göndər</button>
+                    </form>
+                    <div class="hero-form-features">
+                        <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_1">Ödənişli müayinə/şəfalanma</span></span>
+                        <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_2">24 saat ərzində geri zəng</span></span>
+                        <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_3">Tam məxfilik</span></span>
                     </div>
-                    <button type="submit" class="btn btn-gold btn-full" data-i18n="btn_submit">Müraciət Göndər</button>
-                </form>
-                <div class="hero-form-features">
-                    <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_1">Ödənişli müayinə/şəfalanma</span></span>
-                    <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_2">24 saat ərzində geri zəng</span></span>
-                    <span><i class="fas fa-check-circle"></i> <span data-i18n="form_feat_3">Tam məxfilik</span></span>
                 </div>
             </div>
-            </div>
         </div>
+    </section>
+
+    <!-- Disclaimer Modal -->
+    <div class="disclaimer-overlay" id="disclaimerOverlay">
+        <div class="disclaimer-modal">
+            <button class="disclaimer-close" id="disclaimerClose"><i class="fas fa-times"></i></button>
+            <h3 class="disclaimer-title"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="hero_attention">Diqqət !</span></h3>
+            <p class="disclaimer-text" data-i18n-html="hero_text">Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Onun müalicələri yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.</p>
+            <button class="btn btn-primary disclaimer-accept" id="disclaimerAccept"><span data-i18n="disclaimer_accept">Anladım</span></button>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <section class="hero" id="hero">
+        <div class="hero-particles" id="particles"></div>
         <!-- Stats -->
         <div class="stats-bar">
             <div class="container stats-content">
