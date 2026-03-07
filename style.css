@@ -424,7 +424,7 @@ img {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: start;
-    padding: 60px 0;
+    padding: 40px 0;
     position: relative;
     z-index: 2;
 }
