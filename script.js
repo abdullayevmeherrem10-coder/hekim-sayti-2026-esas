@@ -503,4 +503,227 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // === FAYDALI MƏLUMATLAR — BLOG SYSTEM ===
+    function getBlogPosts() {
+        try {
+            return JSON.parse(localStorage.getItem('blogPosts') || '[]');
+        } catch { return []; }
+    }
+
+    function saveBlogPosts(posts) {
+        localStorage.setItem('blogPosts', JSON.stringify(posts));
+    }
+
+    function renderBlogGrid() {
+        const grid = document.getElementById('blogGrid');
+        if (!grid) return;
+        const posts = getBlogPosts();
+        if (posts.length === 0) {
+            grid.innerHTML = '<p style="color:#999;font-size:0.9rem;">Hələ heç bir məlumat əlavə edilməyib.</p>';
+            return;
+        }
+        grid.innerHTML = posts.map(post => `
+            <div class="blog-post-card">
+                ${post.image ? `<img src="${post.image}" alt="${post.title}">` : `<div style="height:180px;background:#f0f7f3;display:flex;align-items:center;justify-content:center;color:#aaa;"><i class="fas fa-image" style="font-size:2rem;"></i></div>`}
+                <div class="blog-post-info">
+                    <h4>${post.title}</h4>
+                    <span class="blog-post-date">${post.date}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    renderBlogGrid();
+
+    // === ADMIN LOGIN ===
+    const adminTriggerBtn = document.getElementById('adminTriggerBtn');
+    const adminLoginOverlay = document.getElementById('adminLoginOverlay');
+    const adminLoginClose = document.getElementById('adminLoginClose');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const loginError = document.getElementById('loginError');
+    const togglePass = document.getElementById('togglePass');
+
+    if (adminTriggerBtn) {
+        adminTriggerBtn.addEventListener('click', () => {
+            adminLoginOverlay.classList.add('active');
+            loginError.textContent = '';
+        });
+    }
+
+    if (adminLoginClose) {
+        adminLoginClose.addEventListener('click', () => {
+            adminLoginOverlay.classList.remove('active');
+        });
+    }
+
+    if (adminLoginOverlay) {
+        adminLoginOverlay.addEventListener('click', (e) => {
+            if (e.target === adminLoginOverlay) adminLoginOverlay.classList.remove('active');
+        });
+    }
+
+    if (togglePass) {
+        togglePass.addEventListener('click', () => {
+            const inp = document.getElementById('adminPassword');
+            const icon = togglePass.querySelector('i');
+            if (inp.type === 'password') {
+                inp.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                inp.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        });
+    }
+
+    if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            if (username === 'Novokuzneck' && password === 'Dudenge1!') {
+                adminLoginOverlay.classList.remove('active');
+                adminLoginForm.reset();
+                openAdminPanel();
+            } else {
+                loginError.textContent = 'İstifadəçi adı və ya şifrə yanlışdır.';
+            }
+        });
+    }
+
+    // === ADMIN PANEL ===
+    const adminPanelOverlay = document.getElementById('adminPanelOverlay');
+    const adminPanelClose = document.getElementById('adminPanelClose');
+    const adminPostForm = document.getElementById('adminPostForm');
+    const adminPostsList = document.getElementById('adminPostsList');
+    const adminCancelEdit = document.getElementById('adminCancelEdit');
+    let editImageData = '';
+
+    function openAdminPanel() {
+        adminPanelOverlay.classList.add('active');
+        renderAdminList();
+        resetAdminForm();
+    }
+
+    if (adminPanelClose) {
+        adminPanelClose.addEventListener('click', () => {
+            adminPanelOverlay.classList.remove('active');
+        });
+    }
+
+    if (adminPanelOverlay) {
+        adminPanelOverlay.addEventListener('click', (e) => {
+            if (e.target === adminPanelOverlay) adminPanelOverlay.classList.remove('active');
+        });
+    }
+
+    function resetAdminForm() {
+        adminPostForm.reset();
+        document.getElementById('editPostId').value = '';
+        document.getElementById('adminImgPreview').innerHTML = '';
+        document.querySelector('.admin-save-btn').textContent = 'Əlavə et';
+        adminCancelEdit.style.display = 'none';
+        editImageData = '';
+    }
+
+    // Image preview
+    const postImageInput = document.getElementById('postImage');
+    if (postImageInput) {
+        postImageInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    editImageData = ev.target.result;
+                    document.getElementById('adminImgPreview').innerHTML = `<img src="${editImageData}" alt="preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    // Save / Edit post
+    if (adminPostForm) {
+        adminPostForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('postTitle').value.trim();
+            const date = document.getElementById('postDate').value.trim();
+            const editId = document.getElementById('editPostId').value;
+            const posts = getBlogPosts();
+
+            if (editId) {
+                const idx = posts.findIndex(p => p.id === editId);
+                if (idx !== -1) {
+                    posts[idx].title = title;
+                    posts[idx].date = date;
+                    if (editImageData) posts[idx].image = editImageData;
+                }
+            } else {
+                const newPost = {
+                    id: Date.now().toString(),
+                    title,
+                    date,
+                    image: editImageData || ''
+                };
+                posts.unshift(newPost);
+            }
+
+            saveBlogPosts(posts);
+            renderBlogGrid();
+            renderAdminList();
+            resetAdminForm();
+        });
+    }
+
+    if (adminCancelEdit) {
+        adminCancelEdit.addEventListener('click', resetAdminForm);
+    }
+
+    function renderAdminList() {
+        if (!adminPostsList) return;
+        const posts = getBlogPosts();
+        if (posts.length === 0) {
+            adminPostsList.innerHTML = '<p style="color:#999;font-size:0.85rem;">Heç bir məqalə yoxdur.</p>';
+            return;
+        }
+        adminPostsList.innerHTML = posts.map(post => `
+            <div class="admin-post-item" data-id="${post.id}">
+                ${post.image ? `<img src="${post.image}" alt="">` : `<div style="width:60px;height:45px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;"><i class="fas fa-image" style="color:#ccc;"></i></div>`}
+                <div class="admin-post-item-info">
+                    <h5>${post.title}</h5>
+                    <span>${post.date}</span>
+                </div>
+                <div class="admin-post-item-actions">
+                    <button class="admin-edit-btn" onclick="editPost('${post.id}')"><i class="fas fa-pen"></i></button>
+                    <button class="admin-delete-btn" onclick="deletePost('${post.id}')"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Global functions for inline onclick
+    window.editPost = function(id) {
+        const posts = getBlogPosts();
+        const post = posts.find(p => p.id === id);
+        if (!post) return;
+        document.getElementById('postTitle').value = post.title;
+        document.getElementById('postDate').value = post.date;
+        document.getElementById('editPostId').value = post.id;
+        editImageData = post.image || '';
+        if (post.image) {
+            document.getElementById('adminImgPreview').innerHTML = `<img src="${post.image}" alt="preview">`;
+        }
+        document.querySelector('.admin-save-btn').textContent = 'Yenilə';
+        adminCancelEdit.style.display = 'inline-block';
+    };
+
+    window.deletePost = function(id) {
+        if (!confirm('Bu məqaləni silmək istədiyinizə əminsiniz?')) return;
+        let posts = getBlogPosts();
+        posts = posts.filter(p => p.id !== id);
+        saveBlogPosts(posts);
+        renderBlogGrid();
+        renderAdminList();
+    };
+
 });

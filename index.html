@@ -67,6 +67,16 @@
             <div class="section-header about-quote-header">
                 <p class="about-hero-quote" data-i18n-html="about_quote">"İnsanın ruhunu müalicə etmədən cismini müalicə etmək olmaz"</p>
             </div>
+            <!-- Faydalı Məlumatlar - inside about -->
+            <div class="blog-section-inline">
+                <div class="section-header blog-section-header">
+                    <h2 class="section-title blog-section-title">FAYDALI MƏLUMATLAR</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Blog cards rendered by JS from localStorage -->
+                </div>
+            </div>
             <div class="about-content">
                 <div class="about-image-col">
                     <div class="about-image-frame">
@@ -357,80 +367,60 @@
         </div>
     </section>
 
-    <!-- Session Booking & Blog Section -->
-    <section class="section call-request" id="call-request">
-        <div class="container">
-            <div class="calendar-blog-grid">
-                <!-- Sol: Təqvim -->
-                <div class="calendar-side">
-                    <div class="section-header" style="text-align:left;">
-                        <span class="section-tag" data-i18n="reservation_tag">Rezervasiya</span>
-                        <h2 class="section-title" data-i18n="reservation_title">Seans üçün Gün Seçimi</h2>
-                        <div class="section-line" style="margin-left:0;"></div>
-                        <p class="section-desc" data-i18n="reservation_desc">Sizə uyğun günü seçin, WhatsApp vasitəsilə əlaqə qurun.</p>
-                    </div>
-                    <div class="calendar-wrapper">
-                        <div class="calendar-header">
-                            <button class="calendar-nav" id="calendarPrev"><i class="fas fa-chevron-left"></i></button>
-                            <h3 class="calendar-month" id="calendarMonth"></h3>
-                            <button class="calendar-nav" id="calendarNext"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="calendar-weekdays" id="calendarWeekdays">
-                            <span data-i18n="cal_mon">BE</span><span data-i18n="cal_tue">ÇA</span><span data-i18n="cal_wed">Ç</span><span data-i18n="cal_thu">CA</span><span data-i18n="cal_fri">C</span><span data-i18n="cal_sat">Ş</span><span data-i18n="cal_sun">B</span>
-                        </div>
-                        <div class="calendar-days" id="calendarDays"></div>
-                    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="admin-login-overlay" id="adminLoginOverlay">
+        <div class="admin-login-modal">
+            <div class="admin-login-header">
+                <h3>Sistemə Giriş</h3>
+                <button class="admin-login-close" id="adminLoginClose">&times;</button>
+            </div>
+            <form id="adminLoginForm">
+                <label>İstifadəçi adı</label>
+                <input type="text" id="adminUsername" placeholder="İstifadəçi adı" required>
+                <label>Şifrə</label>
+                <div class="password-field">
+                    <input type="password" id="adminPassword" placeholder="Şifrə" required>
+                    <button type="button" class="toggle-pass" id="togglePass"><i class="fas fa-eye"></i></button>
                 </div>
-                <!-- Sağ: Bloq -->
-                <div class="blog-side">
-                    <div class="section-header" style="text-align:left;">
-                        <span class="section-tag" data-i18n="blog_tag">Bloq</span>
-                        <h2 class="section-title" data-i18n="blog_title">Faydalı Mövzular</h2>
-                        <div class="section-line" style="margin-left:0;"></div>
-                        <p class="section-desc" data-i18n="blog_desc">Şəfa, sağlamlıq və mənəvi inkişaf haqqında yazılar.</p>
+                <p class="login-error" id="loginError"></p>
+                <button type="submit" class="admin-login-btn">Daxil ol</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel-overlay" id="adminPanelOverlay">
+        <div class="admin-panel">
+            <div class="admin-panel-header">
+                <h3>Admin Panel — Faydalı Məlumatlar</h3>
+                <button class="admin-panel-close" id="adminPanelClose">&times;</button>
+            </div>
+            <div class="admin-panel-body">
+                <form id="adminPostForm" class="admin-post-form">
+                    <label>Başlıq</label>
+                    <input type="text" id="postTitle" placeholder="Məqalənin başlığı" required>
+                    <label>Tarix</label>
+                    <input type="text" id="postDate" placeholder="Məs: 2 Mart, 2026" required>
+                    <label>Şəkil</label>
+                    <input type="file" id="postImage" accept="image/*">
+                    <div class="admin-img-preview" id="adminImgPreview"></div>
+                    <input type="hidden" id="editPostId" value="">
+                    <div class="admin-form-actions">
+                        <button type="submit" class="admin-save-btn">Əlavə et</button>
+                        <button type="button" class="admin-cancel-btn" id="adminCancelEdit" style="display:none;">Ləğv et</button>
                     </div>
-                    <div class="blog-list">
-                        <a href="#" class="blog-card">
-                            <div class="blog-card-icon"><i class="fas fa-brain"></i></div>
-                            <div class="blog-card-content">
-                                <h4 data-i18n="blog_1_title">Panik atak nədir və necə yaranır?</h4>
-                                <p data-i18n="blog_1_desc">Panik atakın əsas səbəbləri və ondan qurtulma yolları haqqında.</p>
-                                <span class="blog-date"><i class="fas fa-calendar-alt"></i> 5 Mart 2026</span>
-                            </div>
-                            <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
-                        </a>
-                        <a href="#" class="blog-card">
-                            <div class="blog-card-icon"><i class="fas fa-heart"></i></div>
-                            <div class="blog-card-content">
-                                <h4 data-i18n="blog_2_title">Ailə münasibətlərində enerji balansı</h4>
-                                <p data-i18n="blog_2_desc">Ailədaxili problemlərin mənəvi kökləri və həll yolları.</p>
-                                <span class="blog-date"><i class="fas fa-calendar-alt"></i> 28 Fevral 2026</span>
-                            </div>
-                            <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
-                        </a>
-                        <a href="#" class="blog-card">
-                            <div class="blog-card-icon"><i class="fas fa-wind"></i></div>
-                            <div class="blog-card-content">
-                                <h4 data-i18n="blog_3_title">Nəfəs terapiyasının gücü</h4>
-                                <p data-i18n="blog_3_desc">Tantra yoqa nəfəs texnikası ilə stresdən azad olma.</p>
-                                <span class="blog-date"><i class="fas fa-calendar-alt"></i> 20 Fevral 2026</span>
-                            </div>
-                            <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
-                        </a>
-                        <a href="#" class="blog-card">
-                            <div class="blog-card-icon"><i class="fas fa-eye"></i></div>
-                            <div class="blog-card-content">
-                                <h4 data-i18n="blog_4_title">Bəsirət gözü nədir?</h4>
-                                <p data-i18n="blog_4_desc">Qəlb gözü ilə diaqnostika və şəfalanma prosesi.</p>
-                                <span class="blog-date"><i class="fas fa-calendar-alt"></i> 15 Fevral 2026</span>
-                            </div>
-                            <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
+                </form>
+                <h4 class="admin-list-title">Mövcud Məqalələr</h4>
+                <div class="admin-posts-list" id="adminPostsList"></div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Admin trigger button (bottom-right, small) -->
+    <button class="admin-trigger-btn" id="adminTriggerBtn" title="Admin">
+        <i class="fas fa-lock"></i>
+    </button>
 
     <!-- FAQ Section -->
     <section class="section faq" id="faq">
