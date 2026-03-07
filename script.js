@@ -514,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // === FAYDALI MƏLUMATLAR — CONTENTFUL BLOG ===
     const CONTENTFUL_SPACE = 'q3fe87ca4p3k';
     const CONTENTFUL_TOKEN = 'uyQ8WH4Rhs40Y1OBAoXI9nzQGunrNUAtEU4lizTZL-o';
-    const LANG_TO_LOCALE = { az: 'az', ru: 'ru', en: 'en-US', tr: 'tr' };
+    const LANG_TO_LOCALE = { az: 'az', ru: 'ru', en: 'az', tr: 'az' };
 
     async function fetchBlogPosts() {
         const grid = document.getElementById('blogGrid');
