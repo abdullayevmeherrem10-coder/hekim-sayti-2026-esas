@@ -102,11 +102,11 @@
         <div class="container navbar-content">
             <a href="index.html" class="navbar-logo"></a>
             <ul class="navbar-menu" id="navMenu">
-                <li><a href="index.html#about" class="nav-link">Haqqında</a></li>
-                <li><a href="index.html#services" class="nav-link">Xidmətlər</a></li>
-                <li><a href="index.html#problems" class="nav-link">Problemlər</a></li>
-                <li><a href="index.html#faq" class="nav-link">Sual-Cavab</a></li>
-                <li><a href="index.html#contact" class="nav-link">Əlaqə</a></li>
+                <li><a href="index.html#about" class="nav-link" data-i18n-nav="about">Haqqında</a></li>
+                <li><a href="index.html#services" class="nav-link" data-i18n-nav="services">Xidmətlər</a></li>
+                <li><a href="index.html#problems" class="nav-link" data-i18n-nav="problems">Problemlər</a></li>
+                <li><a href="index.html#faq" class="nav-link" data-i18n-nav="faq">Sual-Cavab</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-i18n-nav="contact">Əlaqə</a></li>
             </ul>
             <!-- Language Switcher -->
             <div class="lang-switcher" id="langSwitcher">
@@ -154,16 +154,34 @@
         const CONTENTFUL_SPACE = 'q3fe87ca4p3k';
         const CONTENTFUL_TOKEN = 'uyQ8WH4Rhs40Y1OBAoXI9nzQGunrNUAtEU4lizTZL-o';
         const LANG_TO_LOCALE = { az: 'az', ru: 'ru', en: 'az', tr: 'az' };
+        const UI_TEXTS = {
+            az: { back: 'Geri qayıt', loading: 'Yüklənir...', notFound: 'Məqalə tapılmadı.', error: 'Məqalə yüklənə bilmədi.' },
+            ru: { back: 'Назад', loading: 'Загрузка...', notFound: 'Статья не найдена.', error: 'Не удалось загрузить статью.' },
+            en: { back: 'Go back', loading: 'Loading...', notFound: 'Article not found.', error: 'Failed to load article.' },
+            tr: { back: 'Geri dön', loading: 'Yükleniyor...', notFound: 'Makale bulunamadı.', error: 'Makale yüklenemedi.' }
+        };
+        const NAV_TEXTS = {
+            az: { about: 'Haqqında', services: 'Xidmətlər', problems: 'Problemlər', faq: 'Sual-Cavab', contact: 'Əlaqə', session: 'Seansa Yazıl' },
+            ru: { about: 'О нас', services: 'Услуги', problems: 'Проблемы', faq: 'Вопросы', contact: 'Контакты', session: 'Записаться' },
+            en: { about: 'About', services: 'Services', problems: 'Problems', faq: 'FAQ', contact: 'Contact', session: 'Book Session' },
+            tr: { about: 'Hakkında', services: 'Hizmetler', problems: 'Sorunlar', faq: 'SSS', contact: 'İletişim', session: 'Seans Al' }
+        };
         let currentLang = localStorage.getItem('lang') || 'az';
         let locale = LANG_TO_LOCALE[currentLang] || 'az';
 
-        // Set active lang button
-        function updateLangButtons() {
+        function updatePageLang() {
             document.querySelectorAll('.lang-option').forEach(opt => {
                 opt.classList.toggle('active', opt.dataset.lang === currentLang);
             });
+            const nav = NAV_TEXTS[currentLang] || NAV_TEXTS.az;
+            document.querySelectorAll('[data-i18n-nav]').forEach(el => {
+                const key = el.getAttribute('data-i18n-nav');
+                if (nav[key]) el.textContent = nav[key];
+            });
+            const sessionBtn = document.querySelector('.btn-session');
+            if (sessionBtn) sessionBtn.textContent = nav.session;
         }
-        updateLangButtons();
+        updatePageLang();
 
         // Lang switcher
         document.querySelectorAll('.lang-option').forEach(opt => {
@@ -171,7 +189,7 @@
                 currentLang = opt.dataset.lang;
                 locale = LANG_TO_LOCALE[currentLang] || 'az';
                 localStorage.setItem('lang', currentLang);
-                updateLangButtons();
+                updatePageLang();
                 loadPost();
             });
         });
@@ -213,12 +231,14 @@
 
         async function loadPost() {
             const container = document.getElementById('blogDetail');
+            const ui = UI_TEXTS[currentLang] || UI_TEXTS.az;
             const params = new URLSearchParams(window.location.search);
             const postId = params.get('id');
             if (!postId) {
-                container.innerHTML = '<p style="text-align:center;color:#999;padding:80px 0;">Məqalə tapılmadı.</p>';
+                container.innerHTML = `<p style="text-align:center;color:#999;padding:80px 0;">${ui.notFound}</p>`;
                 return;
             }
+            container.innerHTML = `<div class="blog-detail-loading"><i class="fas fa-spinner fa-spin"></i> ${ui.loading}</div>`;
             try {
                 const res = await fetch(
                     `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE}/entries/${postId}?access_token=${CONTENTFUL_TOKEN}&locale=${locale}`
@@ -245,14 +265,14 @@
                 const bodyHtml = f.content ? renderRichText(f.content) : '';
 
                 container.innerHTML = `
-                    <a href="index.html#about" class="blog-detail-back"><i class="fas fa-arrow-left"></i> Geri qayıt</a>
+                    <a href="index.html#about" class="blog-detail-back"><i class="fas fa-arrow-left"></i> ${ui.back}</a>
                     <h1 class="blog-detail-title">${f.title}</h1>
                     <span class="blog-detail-date">${f.date || ''}</span>
                     ${imgHtml}
                     <div class="blog-detail-body">${bodyHtml}</div>
                 `;
             } catch (err) {
-                container.innerHTML = '<p style="text-align:center;color:#999;padding:80px 0;">Məqalə yüklənə bilmədi.</p>';
+                container.innerHTML = `<p style="text-align:center;color:#999;padding:80px 0;">${ui.error}</p>`;
             }
         }
 
