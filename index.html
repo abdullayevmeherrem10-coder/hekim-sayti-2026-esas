@@ -368,54 +368,6 @@
     </section>
 
 
-    <!-- Admin Login Modal -->
-    <div class="admin-login-overlay" id="adminLoginOverlay">
-        <div class="admin-login-modal">
-            <div class="admin-login-header">
-                <h3>Sistemə Giriş</h3>
-                <button class="admin-login-close" id="adminLoginClose">&times;</button>
-            </div>
-            <form id="adminLoginForm">
-                <label>İstifadəçi adı</label>
-                <input type="text" id="adminUsername" placeholder="İstifadəçi adı" required>
-                <label>Şifrə</label>
-                <div class="password-field">
-                    <input type="password" id="adminPassword" placeholder="Şifrə" required>
-                    <button type="button" class="toggle-pass" id="togglePass"><i class="fas fa-eye"></i></button>
-                </div>
-                <p class="login-error" id="loginError"></p>
-                <button type="submit" class="admin-login-btn">Daxil ol</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Admin Panel -->
-    <div class="admin-panel-overlay" id="adminPanelOverlay">
-        <div class="admin-panel">
-            <div class="admin-panel-header">
-                <h3>Admin Panel — Faydalı Məlumatlar</h3>
-                <button class="admin-panel-close" id="adminPanelClose">&times;</button>
-            </div>
-            <div class="admin-panel-body">
-                <form id="adminPostForm" class="admin-post-form">
-                    <label>Başlıq</label>
-                    <input type="text" id="postTitle" placeholder="Məqalənin başlığı" required>
-                    <label>Tarix</label>
-                    <input type="text" id="postDate" placeholder="Məs: 2 Mart, 2026" required>
-                    <label>Şəkil</label>
-                    <input type="file" id="postImage" accept="image/*">
-                    <div class="admin-img-preview" id="adminImgPreview"></div>
-                    <input type="hidden" id="editPostId" value="">
-                    <div class="admin-form-actions">
-                        <button type="submit" class="admin-save-btn">Əlavə et</button>
-                        <button type="button" class="admin-cancel-btn" id="adminCancelEdit" style="display:none;">Ləğv et</button>
-                    </div>
-                </form>
-                <h4 class="admin-list-title">Mövcud Məqalələr</h4>
-                <div class="admin-posts-list" id="adminPostsList"></div>
-            </div>
-        </div>
-    </div>
 
 
     <!-- FAQ Section -->
