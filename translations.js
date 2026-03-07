@@ -180,7 +180,7 @@ const translations = {
         highlight_3: "Нетрадиционная медицина",
 
         hero_attention: "Внимание !",
-        hero_text: "Шахсаддин Иманлы не является специалистом традиционной медицины. Он не лечит лекарствами или растительными средствами. Исцеление происходит только через <strong>парапсихологические сеансы</strong>, <strong>энергию любви</strong> и <strong>Тантра-йогу — дыхательную терапию</strong>.",
+        hero_text: "Шахсаддин Иманлы не является специалистом традиционной медицины. Он не лечит лекарствами или растительными средствами. Его лечение проводится только через <strong>парапсихологические сеансы</strong>, <strong>энергию любви</strong> и <strong>Тантра-йогу — дыхательную терапию</strong>.",
         hero_btn: "Записаться на сеанс",
         hero_form_title: "Заказать звонок",
         hero_form_desc: "Напишите ваш номер для быстрой связи.",
@@ -328,7 +328,7 @@ const translations = {
         highlight_3: "Alternative Medicine Methodology",
 
         hero_attention: "Attention!",
-        hero_text: "Shahsaddin Imanli is not a traditional medicine specialist. He does not treat with any medicines or herbal remedies. Healing is carried out only through <strong>parapsychological sessions</strong>, <strong>love energy</strong>, and <strong>Tantra yoga — breath therapy</strong>.",
+        hero_text: "Shahsaddin Imanli is not a traditional medicine specialist. He does not treat with any medicines or herbal remedies. His treatments are carried out only through <strong>parapsychological sessions</strong>, <strong>love energy</strong>, and <strong>Tantra yoga — breath therapy</strong>.",
         hero_btn: "Book a Session",
         hero_form_title: "Request a Call",
         hero_form_desc: "Write your number for quick contact.",
@@ -476,7 +476,7 @@ const translations = {
         highlight_3: "Alternatif Tıp Metodolojisi",
 
         hero_attention: "Dikkat !",
-        hero_text: "Şahseddin İmanlı geleneksel tıp uzmanı değildir. Hiçbir ilaç veya bitkisel ürünle tedavi yapmaz. Şifalanma yalnızca <strong>parapsikolojik seanslar</strong>, <strong>sevgi enerjisi</strong> ve <strong>Tantra yoga — nefes terapisi</strong> aracılığıyla gerçekleştirilir.",
+        hero_text: "Şahseddin İmanlı geleneksel tıp uzmanı değildir. Hiçbir ilaç veya bitkisel ürünle tedavi yapmaz. Onun tedavileri yalnızca <strong>parapsikolojik seanslar</strong>, <strong>sevgi enerjisi</strong> ve <strong>Tantra yoga — nefes terapisi</strong> aracılığıyla gerçekleştirilir.",
         hero_btn: "Seansa Yazıl",
         hero_form_title: "Arama Talebi",
         hero_form_desc: "Hızlı iletişim için numaranızı yazın.",
