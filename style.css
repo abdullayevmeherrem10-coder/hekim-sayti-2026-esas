@@ -870,6 +870,12 @@ img {
     color: var(--gold);
 }
 
+.service-img-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
 .service-card:hover .service-icon {
     background: rgba(45, 129, 87, 0.1);
     box-shadow: 0 0 20px rgba(45, 129, 87, 0.2);
