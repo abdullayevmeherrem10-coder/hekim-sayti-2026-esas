@@ -108,6 +108,25 @@
                 <li><a href="index.html#faq" class="nav-link">Sual-Cavab</a></li>
                 <li><a href="index.html#contact" class="nav-link">Əlaqə</a></li>
             </ul>
+            <!-- Language Switcher -->
+            <div class="lang-switcher" id="langSwitcher">
+                <div class="lang-option" data-lang="az">
+                    <img src="https://flagcdn.com/w40/az.png" alt="AZ">
+                    <span>AZ</span>
+                </div>
+                <div class="lang-option" data-lang="ru">
+                    <img src="https://flagcdn.com/w40/ru.png" alt="RU">
+                    <span>RUS</span>
+                </div>
+                <div class="lang-option" data-lang="en">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+                    <span>ENG</span>
+                </div>
+                <div class="lang-option" data-lang="tr">
+                    <img src="https://flagcdn.com/w40/tr.png" alt="TR">
+                    <span>TR</span>
+                </div>
+            </div>
             <a href="https://wa.link/wcams9" target="_blank" class="btn-session">Seansa Yazıl</a>
             <button class="hamburger" id="hamburger" aria-label="Menyu">
                 <span></span>
@@ -135,8 +154,27 @@
         const CONTENTFUL_SPACE = 'q3fe87ca4p3k';
         const CONTENTFUL_TOKEN = 'uyQ8WH4Rhs40Y1OBAoXI9nzQGunrNUAtEU4lizTZL-o';
         const LANG_TO_LOCALE = { az: 'az', ru: 'ru', en: 'en-US', tr: 'tr' };
-        const currentLang = localStorage.getItem('lang') || 'az';
-        const locale = LANG_TO_LOCALE[currentLang] || 'az';
+        let currentLang = localStorage.getItem('lang') || 'az';
+        let locale = LANG_TO_LOCALE[currentLang] || 'az';
+
+        // Set active lang button
+        function updateLangButtons() {
+            document.querySelectorAll('.lang-option').forEach(opt => {
+                opt.classList.toggle('active', opt.dataset.lang === currentLang);
+            });
+        }
+        updateLangButtons();
+
+        // Lang switcher
+        document.querySelectorAll('.lang-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                currentLang = opt.dataset.lang;
+                locale = LANG_TO_LOCALE[currentLang] || 'az';
+                localStorage.setItem('lang', currentLang);
+                updateLangButtons();
+                loadPost();
+            });
+        });
 
         // Rich text renderer
         function renderRichText(node) {
