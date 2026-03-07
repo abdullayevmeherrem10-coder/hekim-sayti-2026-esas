@@ -864,6 +864,12 @@ img {
     transition: var(--transition);
 }
 
+.service-svg-icon {
+    width: 32px;
+    height: 48px;
+    color: var(--gold);
+}
+
 .service-card:hover .service-icon {
     background: rgba(45, 129, 87, 0.1);
     box-shadow: 0 0 20px rgba(45, 129, 87, 0.2);
