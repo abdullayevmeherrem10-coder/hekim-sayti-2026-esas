@@ -103,18 +103,34 @@
         </div>
     </section>
 
+    <!-- Disclaimer Modal -->
+    <div class="disclaimer-overlay" id="disclaimerOverlay">
+        <div class="disclaimer-modal">
+            <button class="disclaimer-close" id="disclaimerClose"><i class="fas fa-times"></i></button>
+            <h3 class="disclaimer-title"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="hero_attention">Diqqət !</span></h3>
+            <p class="disclaimer-text" data-i18n-html="hero_text">Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Onun müalicələri yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.</p>
+            <button class="btn btn-primary disclaimer-accept" id="disclaimerAccept"><span data-i18n="disclaimer_accept">Anladım</span></button>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-particles" id="particles"></div>
         <div class="container hero-content">
             <div class="hero-text">
-                <div class="approach-banner animate-fade-up">
-                    <h3 class="approach-title-inline"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="hero_attention">Diqqət !</span></h3>
-                    <p data-i18n-html="hero_text">Şahsəddin İmanlı ənənəvi tibb mütəxəssisi deyil. O, heç bir dərman və ya bitki tərkibli vasitələrlə müalicə aparmır. Onun müalicələri yalnız <strong>parapsixoloji seanslar</strong>, <strong>sevgi enerjisi</strong> və <strong>Tantra yoqa - nəfəs terapiyası</strong> vasitəsilə həyata keçirilir.</p>
-                    <div class="hero-buttons">
-                        <a href="https://wa.link/wcams9" target="_blank" class="btn btn-primary btn-hero-cta">
-                            <i class="fab fa-whatsapp"></i> <span data-i18n="hero_btn">Seansa Yazıl</span>
-                        </a>
+                <div class="hero-calendar-box animate-fade-up">
+                    <h3 class="hero-form-title" data-i18n="reservation_title">Seans üçün Gün Seçimi</h3>
+                    <p class="hero-form-desc" data-i18n="reservation_desc">Sizə uyğun günü seçin, WhatsApp vasitəsilə əlaqə qurun.</p>
+                    <div class="calendar-wrapper hero-calendar">
+                        <div class="calendar-header">
+                            <button class="calendar-nav" id="heroCalendarPrev"><i class="fas fa-chevron-left"></i></button>
+                            <h3 class="calendar-month" id="heroCalendarMonth"></h3>
+                            <button class="calendar-nav" id="heroCalendarNext"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar-weekdays" id="heroCalendarWeekdays">
+                            <span data-i18n="cal_mon">BE</span><span data-i18n="cal_tue">ÇA</span><span data-i18n="cal_wed">Ç</span><span data-i18n="cal_thu">CA</span><span data-i18n="cal_fri">C</span><span data-i18n="cal_sat">Ş</span><span data-i18n="cal_sun">B</span>
+                        </div>
+                        <div class="calendar-days" id="heroCalendarDays"></div>
                     </div>
                 </div>
             </div>

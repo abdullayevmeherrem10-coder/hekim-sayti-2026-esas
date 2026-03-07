@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Re-render calendar with new language
         if (typeof renderCalendar === 'function') renderCalendar();
+        if (typeof renderHeroCalendar === 'function') renderHeroCalendar();
     }
 
     // Lang switcher click
@@ -285,6 +286,105 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         renderCalendar();
+    }
+
+    // === HERO CALENDAR ===
+    const heroCalendarDays = document.getElementById('heroCalendarDays');
+    const heroCalendarMonth = document.getElementById('heroCalendarMonth');
+    const heroCalendarPrev = document.getElementById('heroCalendarPrev');
+    const heroCalendarNext = document.getElementById('heroCalendarNext');
+
+    if (heroCalendarDays) {
+        const today2 = new Date();
+        today2.setHours(0, 0, 0, 0);
+        let hMonth = today2.getMonth();
+        let hYear = today2.getFullYear();
+
+        window.renderHeroCalendar = function() {
+            const t = translations[currentLang];
+            const months = t.cal_months;
+
+            heroCalendarDays.innerHTML = '';
+            heroCalendarMonth.textContent = months[hMonth] + ' ' + hYear;
+
+            const firstDay = new Date(hYear, hMonth, 1).getDay();
+            const daysInMonth = new Date(hYear, hMonth + 1, 0).getDate();
+            const startDay = firstDay === 0 ? 6 : firstDay - 1;
+
+            for (let i = 0; i < startDay; i++) {
+                const empty = document.createElement('div');
+                empty.className = 'calendar-day empty';
+                heroCalendarDays.appendChild(empty);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day';
+                dayEl.textContent = day;
+                dayEl.style.opacity = '0';
+                dayEl.style.transform = 'scale(0.5)';
+                dayEl.style.animation = `dayFadeIn 0.3s ease forwards ${(startDay + day) * 20}ms`;
+
+                const thisDate = new Date(hYear, hMonth, day);
+                thisDate.setHours(0, 0, 0, 0);
+
+                if (thisDate.getTime() === today2.getTime()) {
+                    dayEl.classList.add('today');
+                }
+
+                if (thisDate <= today2) {
+                    dayEl.classList.add('disabled');
+                } else {
+                    dayEl.addEventListener('click', () => {
+                        const msgTemplate = t.cal_whatsapp_msg;
+                        const msg = msgTemplate
+                            .replace('{day}', day)
+                            .replace('{month}', months[hMonth].toLowerCase())
+                            .replace('{year}', hYear);
+                        window.open('https://wa.me/994518499998?text=' + encodeURIComponent(msg), '_blank');
+                    });
+                }
+
+                heroCalendarDays.appendChild(dayEl);
+            }
+        };
+
+        heroCalendarPrev.addEventListener('click', () => {
+            const minMonth = today2.getMonth();
+            const minYear = today2.getFullYear();
+            if (hYear > minYear || (hYear === minYear && hMonth > minMonth)) {
+                hMonth--;
+                if (hMonth < 0) { hMonth = 11; hYear--; }
+                renderHeroCalendar();
+            }
+        });
+
+        heroCalendarNext.addEventListener('click', () => {
+            hMonth++;
+            if (hMonth > 11) { hMonth = 0; hYear++; }
+            renderHeroCalendar();
+        });
+
+        renderHeroCalendar();
+    }
+
+    // === DISCLAIMER MODAL ===
+    const disclaimerOverlay = document.getElementById('disclaimerOverlay');
+    const disclaimerClose = document.getElementById('disclaimerClose');
+    const disclaimerAccept = document.getElementById('disclaimerAccept');
+
+    function closeDisclaimer() {
+        if (disclaimerOverlay) {
+            disclaimerOverlay.classList.add('hidden');
+        }
+    }
+
+    if (disclaimerClose) disclaimerClose.addEventListener('click', closeDisclaimer);
+    if (disclaimerAccept) disclaimerAccept.addEventListener('click', closeDisclaimer);
+    if (disclaimerOverlay) {
+        disclaimerOverlay.addEventListener('click', (e) => {
+            if (e.target === disclaimerOverlay) closeDisclaimer();
+        });
     }
 
     // === FORM SUBMISSION ===
